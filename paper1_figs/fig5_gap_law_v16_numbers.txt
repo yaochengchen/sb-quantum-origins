@@ -1,0 +1,7 @@
+(a) crossing (vs p_c)         : p*(h->0) - ref median -0.038, |.|<0.2 in 71%, Spearman +0.975;  p*(h=1) - ref median +3.29
+(a) no crossing (vs p_first)  : p*(h->0) - ref median -0.002, |.|<0.2 in 100%, Spearman +0.928;  p*(h=1) - ref median +2.28
+(b) crossing    : fitted 16; exp(-S/h) better on 12 of 16
+(b) no crossing : fitted 43; exp(-S/h) better on 3 of 43
+(c) Spearman(S, d_H x_c^2) +0.944 (N 16); S/(d_H x_c^2) median 0.55, range 0.17-1.40
+(d) weyl: shown (P_LZ >= 1e-5) 10; mean failure where P_LZ < 1e-6 6.0e-05 (N 289);  P_LZ > 0.01: #6 0.017/0.016, #29 0.179/0.184, #231 0.022/0.027, #267 0.999/0.999
+(d) goto: shown (P_LZ >= 1e-5) 53; mean failure where P_LZ < 1e-6 8.8e-04 (N 242);  P_LZ > 0.01: #1 0.069/0.072, #6 0.168/0.155, #29 0.727/0.614, #94 0.037/0.035, #99 0.010/0.017, #134 0.014/0.017, #162 0.012/0.021, #190 0.012/0.018, #231 0.257/0.237, #267 1.000/1.000

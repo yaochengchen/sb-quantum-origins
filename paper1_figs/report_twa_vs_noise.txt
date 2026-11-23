@@ -1,0 +1,24 @@
+== TWA vs classical noise of matched amplitude, per instance (G4 0-99, weyl flow, T = 700, R = 1000 each)
+   pair                         sigma_cl  sigma_TWA |  mean d   mean|d|  max|d|  share |z|<2  share |z|<3  Spearman(P_cl,P_TWA)
+   matched   eps=0.03   h=0.001   0.0173    0.0158   | -0.0003  0.0033  0.048    0.98         1.00        +0.941
+      crossing     N   9: mean|d| 0.0186, share |z|<2 0.78
+      no crossing  N  91: mean|d| 0.0018, share |z|<2 1.00
+   matched   eps=0.3    h=0.1     0.1732    0.1581   | +0.0096  0.0147  0.078    0.75         0.92        +0.979
+      crossing     N   9: mean|d| 0.0252, share |z|<2 0.78
+      no crossing  N  91: mean|d| 0.0136, share |z|<2 0.75
+   unmatched eps=1e-06  h=0.001   0.0000    0.0158   | +0.0645  0.0814  0.789    0.54         0.58        +0.779
+      crossing     N   9: mean|d| 0.1397, share |z|<2 0.22
+      no crossing  N  91: mean|d| 0.0756, share |z|<2 0.57
+
+   instances with |z| >= 3 in the matched pairs:
+     inst   9  eps 0.3 / h 0.1:  P_cl 0.793  P_TWA 0.854  z +3.6  cross 0
+     inst  37  eps 0.3 / h 0.1:  P_cl 0.858  P_TWA 0.907  z +3.4  cross 0
+     inst  51  eps 0.3 / h 0.1:  P_cl 0.758  P_TWA 0.826  z +3.7  cross 0
+     inst  53  eps 0.3 / h 0.1:  P_cl 0.826  P_TWA 0.877  z +3.2  cross 0
+     inst  57  eps 0.3 / h 0.1:  P_cl 0.629  P_TWA 0.707  z +3.7  cross 0
+     inst  79  eps 0.3 / h 0.1:  P_cl 0.828  P_TWA 0.877  z +3.1  cross 0
+     inst  90  eps 0.3 / h 0.1:  P_cl 0.849  P_TWA 0.894  z +3.0  cross 0
+     inst  98  eps 0.3 / h 0.1:  P_cl 0.789  P_TWA 0.847  z +3.4  cross 0
+
+-- contrast: quantum (h = 1) vs TWA (h = 1) on the same instances
+   mean |P_L0 - P_L1| 0.456; on crossing instances 0.661

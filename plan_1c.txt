@@ -1,0 +1,9 @@
+# MSBQA phase 1c plan (2026-10-31), CPU only: step 3 = L4 <-> bSB* one-knob ablation (code/sb_ablate.py).
+# Step 1 (classical configuration branches, code/branches.py) is a single fast command, not in this plan.
+# Run:  PLAN=plan_1c.txt nohup bash run_1b.sh > run_1c.log 2>&1 &      (results: run_v4/parts/SBA_*.json)
+# Then: python code/ablate_report.py --run run_v4 --inst-dir instances
+# ~13 min per instance (16 configurations; the two with T = 10000/Dbar at dt = 0.0025 take most of it),
+# 500 instances ~ 110 core-hours ~ 45 min on ~150 processes.
+# Columns ('-' = not used):
+# tag   kind       family  set  lo   hi   T     pf  h     cutoff  R     dt
+SBA     ablate     -       G4   0    499  -     -   -     -       1000  -

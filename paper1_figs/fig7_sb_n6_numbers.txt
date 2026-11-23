@@ -1,0 +1,22 @@
+(a) ablation: 500 instances, trap 43
+    L4         trap 0.714  non-trap 0.993  all 0.969
+    L4 +D      trap 0.856  non-trap 0.983  all 0.972
+    L4 +af     trap 0.793  non-trap 1.000  all 0.982
+    L4 +T      trap 0.778  non-trap 1.000  all 0.981
+    L4 +init   trap 0.767  non-trap 0.995  all 0.976
+    L4 +c      trap 0.377  non-trap 0.986  all 0.934
+    bSB* -D    trap 0.651  non-trap 0.987  all 0.958
+    bSB* -T    trap 0.997  non-trap 0.998  all 0.998
+    bSB*       trap 1.000  non-trap 0.998  all 0.998
+(b) Ising window: 500 instances
+    mean detuning, crossing instances N  17: base 0.535, hold@Dbar 1000 0.806, hold@pf 1000 0.535
+    kpo  detuning, crossing instances N  26: base 0.541, hold@Dbar 1000 0.641, hold@pf 1000 0.541
+    control (no trap, no crossing) N 427: mean base 0.995, mean hold@Dbar 1000 0.999, mean hold@pf 1000 0.995, kpo base 0.999, kpo hold@Dbar 1000 0.999, kpo hold@pf 1000 0.999
+    bSB* on the uniform-detuning crossing instances: 0.941
+(c) n=4: trap 0.087, crossing 17/300;  n=6: trap 0.250, crossing 36/300, crossing with gap 36
+    cross. frac.           n=4 0.057   n=6 0.120
+    L2 $\varepsilon^*$     n=4 0.337   n=6 0.239
+    L4 $\varepsilon^*$     n=4 0.544   n=6 0.432
+    bSB$^*$                n=4 1.000   n=6 0.972
+    quantum                n=4 0.927   n=6 0.927
+    n=6 Dmin median crossing 0.326, no crossing 0.914;  bSB* == 0 on 10 instances

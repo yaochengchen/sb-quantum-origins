@@ -1,0 +1,6 @@
+#29: p_c 1.625; competing [ 1 -1 -1  1], ground [ 1  1 -1 -1]; min E_A - E_B -0.0126 at p 0.615
+h = 1   : p* 4.273, Delta_min 2.692e-02, curve points 157
+h = 0.7 : p* 3.090, Delta_min 1.394e-02, curve points 157
+h = 0.5 : p* 2.432, Delta_min 3.406e-03, curve points 157
+h = 0.35: p* 2.133, Delta_min 1.339e-04, curve points 161
+h = 0.25: p* 1.974, Delta_min 1.265e-06, curve points 123

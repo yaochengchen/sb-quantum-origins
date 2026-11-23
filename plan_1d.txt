@@ -1,0 +1,15 @@
+# MSBQA 1d plan (2026-10-31), CPU of pu1 only (code/make_tasks_1d.py, run with run_1d.sh). Results: run_v4/parts/<tag>_*.json
+# Run:  nohup bash run_1d.sh > run_1d.log 2>&1 &
+# The instance lists @run_v4/tasks/sel_1d_*.txt and the set G4U are made by run_1d.sh before the tasks.
+# Columns ('-' = not used):
+# tag   kind       family  set   insts                            T     pf  h     cutoff  R     dt
+#
+# B. quantum minimum gap, weyl family, h = 1, cutoff 22 (same settings as Wg of phase 1b), ~41 min per task:
+#    uniform detuning max_i Delta_i on all selected instances (KO, MO, BOTH, NEG, CTRL; ~124)
+WgU     gap        weyl    G4U   @run_v4/tasks/sel_1d_all.txt     -     7   1.0   22      -     -
+#    per-spin detuning on the selected instances >= 300 (0-299 exist as Wg from phase 1b; ~61)
+Wg1d    gap        weyl    G4    @run_v4/tasks/sel_1d_ge300.txt   -     7   1.0   22      -     -
+# C. classical layers L2g, L3, L4 with the uniform detuning, same settings and seeds as G0c (phase 1), ~3 min per task
+G0cU    classical  goto    G4U   0-999                            700   7   1.0   -       1000  0.0025
+# D. Ising window: L4 dynamics with holds at p = Dbar / p = pf, per-spin and mean detuning, ~7 min per task
+IW      iwindow    -       G4    0-499                            -     -   -     -       1000  -

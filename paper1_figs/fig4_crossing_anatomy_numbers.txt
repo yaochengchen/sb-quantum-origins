@@ -1,0 +1,10 @@
+instance 29: Delta [0.6352 0.4552 0.6299 0.285 ], lam1 0.1452, lam2 0.1890; branches_weyl.csv: cross 1, p_c 1.625, ham_c 2.0, xsq_c 1.418
+recomputed: p_c 1.625 (csv 1.625); ground cfg [ 1  1 -1 -1] born at 0.250; replaced cfg [ 1 -1 -1  1] born at 0.150; Hamming 2
+h = 1     cutoff 22  p* 4.273  Delta_min 2.692e-02  
+h = 0.7   cutoff 26  p* 3.090  Delta_min 1.394e-02  
+h = 0.5   cutoff 32  p* 2.432  Delta_min 3.406e-03  
+h = 0.35  cutoff 40  p* 2.133  Delta_min 1.339e-04  
+h = 0.25  cutoff 42  p* 1.974  Delta_min 1.265e-06  
+h = 0.18  cutoff 53  p* 1.870  Delta_min 1.456e-08  (below solver resolution)
+h = 0.12  cutoff 72  p* 1.785  Delta_min 4.128e-08  (below solver resolution)
+panel (a) y-range +-0.0292 (max |E_trap - E_ground| for p <= p_c + 1.5)

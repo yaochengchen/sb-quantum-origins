@@ -1,0 +1,35 @@
+MSBQA 1e report: n = 6 (G6 0-299) next to n = 4 (G4 0-299)
+finished: NS6 300  SBT6 300  W6g 66  W6g7 9;  G6 branches 300
+
+== A. checks
+   W6g (pmax 5, cutoff 18): edge = 1 on 9: [2, 5, 6, 32, 66, 103, 240, 260, 277]
+   #2: pmax 5 Delta_min 4.765e-01 at 5.00  ->  pmax 7 1.824e-01 at 6.60 (edge 0, top2 7.2e-06)
+   #5: pmax 5 Delta_min 3.686e-01 at 5.00  ->  pmax 7 3.674e-01 at 5.11 (edge 0, top2 6.2e-06)
+   #6: pmax 5 Delta_min 2.372e-01 at 5.00  ->  pmax 7 2.368e-01 at 5.06 (edge 0, top2 6.1e-06)
+   #32: pmax 5 Delta_min 3.500e-01 at 5.00  ->  pmax 7 1.461e-01 at 6.29 (edge 0, top2 6.1e-06)
+   #66: pmax 5 Delta_min 3.005e-01 at 5.00  ->  pmax 7 2.706e-01 at 5.52 (edge 0, top2 5.1e-06)
+   #103: pmax 5 Delta_min 1.965e-02 at 4.97  ->  pmax 7 1.964e-02 at 4.97 (edge 0, top2 4.4e-06)
+   #240: pmax 5 Delta_min 3.822e-02 at 5.00  ->  pmax 7 4.547e-03 at 5.73 (edge 0, top2 5.6e-06)
+   #260: pmax 5 Delta_min 1.672e-01 at 5.00  ->  pmax 7 1.323e-01 at 5.53 (edge 0, top2 8.3e-06)
+   #277: pmax 5 Delta_min 1.751e-01 at 5.00  ->  pmax 7 1.745e-01 at 5.07 (edge 0, top2 6.0e-06)
+   W6g7: top2 max 8.3e-06 (should be < ~1e-4), Delta_min(pmax 7) > Delta_min(pmax 5) on 0 (should be 0)
+
+== B. classical (T = 700, R = 1000; hyperparameters from the n = 4 training set), mean success
+                            n=4 all           n=6 all      n=4 crossing      n=6 crossing   n=4 no crossing   n=6 no crossing          n=4 trap          n=6 trap
+   L2g_1e-6                   0.886             0.857             0.400             0.452             0.915             0.930             0.481             0.588
+   L2g_eps*                   0.948             0.869             0.337             0.239             0.985             0.977             0.559             0.520
+   L3_eps*                    0.958             0.865             0.351             0.260             0.995             0.970             0.584             0.504
+   L4_eps*                    0.964             0.895             0.544             0.432             0.990             0.980             0.689             0.613
+   bSB*                       1.000             0.967             1.000             0.972             1.000             0.969             1.000             0.973
+   dSB*                       0.991             0.939             0.955             0.888             0.993             0.953             0.970             0.870
+   (instances)                  300               300                17                36               283               258                26                75
+   n=4: trap 8.7 %, crossing 5.7 %;  instances with bSB* < 0.9: 0, with max(L2g, L3, L4 at eps*) < 0.9: 12
+   n=6: trap 25.0 %, crossing 12.0 %;  instances with bSB* < 0.9: 10, with max(L2g, L3, L4 at eps*) < 0.9: 34
+
+== C. quantum minimum gap (weyl, h = 1) and Landau-Zener estimate P_Q(LZ) = 1 - exp(-x_LZ T), T = 700
+   n=4: 300 instances with gaps; Delta_min median crossing 7.888e-02 (17), no crossing 9.971e-01 (283), AUC(crossing -> smaller) 0.990;  P_Q(LZ) mean crossing 0.928, no crossing 1.000;  measured Q crossing 0.927, no crossing 1.000
+   n=6: 66 instances with gaps; Delta_min median crossing 3.262e-01 (36), no crossing 9.137e-01 (30), AUC(crossing -> smaller) 0.942;  P_Q(LZ) mean crossing 0.927, no crossing 1.000;  median p* - p_c on crossing +2.66
+
+== D. crossing instances with a gap: P_Q(LZ) vs classical (n = 4 uses the measured Q)
+   n=4 (17): mean Q 0.927, best KPO-type classical (max of L2g/L3/L4 at eps*) 0.571, bSB* 1.000;  Q - best KPO > 0.1 on 10, bSB* - Q > 0.02 on 3, Q - bSB* > 0.1 on 0
+   n=6 (36): mean PQ_LZ 0.927, best KPO-type classical (max of L2g/L3/L4 at eps*) 0.557, bSB* 0.972;  PQ_LZ - best KPO > 0.1 on 21, bSB* - PQ_LZ > 0.02 on 3, PQ_LZ - bSB* > 0.1 on 0

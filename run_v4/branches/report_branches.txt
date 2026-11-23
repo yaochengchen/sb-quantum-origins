@@ -1,0 +1,39 @@
+MSBQA phase 1c: classical configuration branches (1000 instances, n = 4, dp = 0.005)
+
+== weyl (classical detuning Delta - 0)
+   ground configuration lowest at p = pf: 99.9 %;  first branch = ground: 94.7 %;  first branch = sign(v1): 95.4 %
+   crossing (another configuration lowest first, ground takes over at p_c): 54 of 1000 (5.4 %); among trap instances 58.2 %, non-trap 0.1 %;  ground never lowest at pf: 1;  kind: energy crossing 54, ground branch born at p_c 0
+   p_c on crossing instances: median p_c - lam1 0.956, p_c - lam2 0.850;  Hamming(mod Z2) at p_c: 1: 36, 2: 18
+
+== goto_h1 (classical detuning Delta - 1)
+   ground configuration lowest at p = pf: 99.9 %;  first branch = ground: 67.8 %;  first branch = sign(v1): 67.5 %
+   crossing (another configuration lowest first, ground takes over at p_c): 31 of 1000 (3.1 %); among trap instances 33.0 %, non-trap 0.1 %;  ground never lowest at pf: 1;  kind: energy crossing 31, ground branch born at p_c 0
+   p_c on crossing instances: median p_c - lam1 0.708, p_c - lam2 0.471;  Hamming(mod Z2) at p_c: 1: 23, 2: 8
+
+== quantum Wg (weyl, h = 1) vs classical branches, 300 instances
+   crossing instances (17): p* - p_c median +3.288, |p* - p_c| < 0.1: 0 %, < 0.3: 0 %;  Spearman(p*, p_c) +0.748
+   Delta_min: crossing median 7.888e-02 vs no crossing 9.971e-01;  Spearman(ln Delta_min, ham_c * xsq_c / h) on crossing -0.618
+   all: p* - p_gmin_cl (classical gap minimum) median +1.745, |.| < 0.1: 1 %;  Spearman(p*, p_gmin_cl) -0.457;  Spearman(Delta_min, gmin_cl / h) +0.949
+   L2g eps* mean success   crossing 0.337   no crossing 0.985   |   trap 0.559   non-trap 0.985;  Spearman(Q - L2g eps*, cross) +0.352, (Q - L2g eps*, trap) +0.419
+   L4 eps*  mean success   crossing 0.544   no crossing 0.990   |   trap 0.689   non-trap 0.991;  Spearman(Q - L4 eps*, cross) +0.203, (Q - L4 eps*, trap) +0.258
+
+== quantum Wg07 (weyl, h = 0.7) vs classical branches, 50 instances
+   crossing instances (7): p* - p_c median +2.027, |p* - p_c| < 0.1: 0 %, < 0.3: 0 %;  Spearman(p*, p_c) +0.964
+   Delta_min: crossing median 1.188e-01 vs no crossing 8.337e-01;  Spearman(ln Delta_min, ham_c * xsq_c / h) on crossing -0.857
+   all: p* - p_gmin_cl (classical gap minimum) median +0.795, |.| < 0.1: 8 %;  Spearman(p*, p_gmin_cl) -0.259;  Spearman(Delta_min, gmin_cl / h) +0.844
+
+== quantum Wg05 (weyl, h = 0.5) vs classical branches, 50 instances
+   crossing instances (7): p* - p_c median +1.340, |p* - p_c| < 0.1: 0 %, < 0.3: 0 %;  Spearman(p*, p_c) +0.964
+   Delta_min: crossing median 8.255e-02 vs no crossing 6.584e-01;  Spearman(ln Delta_min, ham_c * xsq_c / h) on crossing -0.857
+   all: p* - p_gmin_cl (classical gap minimum) median +0.309, |.| < 0.1: 8 %;  Spearman(p*, p_gmin_cl) -0.202;  Spearman(Delta_min, gmin_cl / h) +0.702
+
+== quantum Gg (goto_h1, h = 1) vs classical branches, 300 instances
+   crossing instances (9): p* - p_c median +2.105, |p* - p_c| < 0.1: 0 %, < 0.3: 0 %;  Spearman(p*, p_c) +0.667
+   Delta_min: crossing median 4.369e-02 vs no crossing 3.424e-01;  Spearman(ln Delta_min, ham_c * xsq_c / h) on crossing -0.833
+   all: p* - p_gmin_cl (classical gap minimum) median +0.522, |.| < 0.1: 15 %;  Spearman(p*, p_gmin_cl) -0.333;  Spearman(Delta_min, gmin_cl / h) +0.043
+   L2g eps* mean success   crossing 0.236   no crossing 0.970   |   trap 0.559   non-trap 0.985;  Spearman(Q - L2g eps*, cross) +0.228, (Q - L2g eps*, trap) +0.422
+   L4 eps*  mean success   crossing 0.435   no crossing 0.981   |   trap 0.689   non-trap 0.991;  Spearman(Q - L4 eps*, cross) +0.152, (Q - L4 eps*, trap) +0.321
+
+== tunnelling scaling, weyl, Delta_min at h = 1, 0.7, 0.5 (50 instances)
+   fit ln Delta = c - S/h: median S +0.410, median R^2 0.994;  fit ln Delta = c + k ln h: median R^2 0.999;  1/h fits better in 16 % (3 points per instance: weak test)
+   crossing instances (7): median S +0.410 (no crossing +0.410);  Spearman(S, ham_c * xsq_c) +0.929

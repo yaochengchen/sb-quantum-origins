@@ -1,0 +1,18 @@
+# MSBQA phase 1c, GPU part, FULL plan (2026-10-31): the trimmed plan (plan_gpu_1c.txt) plus more instances and the
+# finer p grid. Use it when the probe of gap_scan_gpu.py (fused kernel) gives <= ~10 min per task at h = 0.12.
+# Same tags as the trimmed plan: instances finished there are skipped here (they keep their grid step 0.1; the
+# minima are refined to 1e-6 either way).
+# Run:  PLAN=plan_gpu_1c_full.txt nohup bash run_gpu_1c.sh > run_gpu_1c.log 2>&1 &
+# Columns:  tag  set  family  h  cutoff  pmax  insts  [dpgrid]
+#
+# n = 4, weyl family: instances 0-49 (all of them have h = 1, 0.7, 0.5 from the CPU) + the 10 classical-crossing
+# instances of 50-299 + the trap-without-crossing control 23 (in 0-49).
+Wg035   G4   weyl   0.35   40   7   0-49,94,99,133,134,162,190,218,231,264,267   0.05
+Wg025   G4   weyl   0.25   42   5   0-49,94,99,133,134,162,190,218,231,264,267   0.05
+Wg018   G4   weyl   0.18   53   5   0-49,94,99,133,134,162,190,218,231,264,267   0.05
+Wg012   G4   weyl   0.12   72   5   0-49,94,99,133,134,162,190,218,231,264,267   0.05
+Wg07    G4   weyl   0.7    26   7   94,99,133,134,162,190,218,231,264,267
+Wg05    G4   weyl   0.5    32   7   94,99,133,134,162,190,218,231,264,267
+#
+# n = 6 (G6), h = 1, cutoff 18, pmax 5: up to 40 classical-crossing instances among the first 300 + 30 controls.
+W6g     G6   weyl   1.0    18   5   @run_v4/tasks/g6_select_40_30.txt   0.1

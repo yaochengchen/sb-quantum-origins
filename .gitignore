@@ -1,0 +1,16 @@
+# Not part of the public repository (sb-quantum-origins)
+__pycache__/
+*.pyc
+logs/
+*.log
+# internal working notes (Chinese) and the frozen first draft
+README_*.md
+RESULTS_*.md
+paper1/
+# exploratory folders not used in the paper, older run copies, local archives
+geo_decisive/
+goto2016_fig2/
+run_merged/
+slurm/
+gpu_parts.tgz
+*.zip

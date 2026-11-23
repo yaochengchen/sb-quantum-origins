@@ -1,0 +1,7 @@
+# MSBQA 1e plan (2026-10-31), CPU part (code/make_tasks_1d.py, run with run_1e.sh): n = 6 classical baselines on the
+# instances G6 0-299 (those with classical branches, run_v4/branches_G6/). Same settings, seeds and code as the n = 4
+# runs NS (noise scan) and SBT (bSB / dSB grid) of phase 1b. The GPU part (W6g7) is made by code/select_1e.py.
+# Columns ('-' = not used):
+# tag   kind     family  set  insts   T     pf  h   cutoff  R     dt
+NS6     noise    -       G6   0-299   700   7   -   -       1000  0.0025
+SBT6    sbtune   -       G6   0-299   -     -   -   -       1000  -

@@ -1,0 +1,61 @@
+MSBQA phase 1c: quantum minimum gap vs h (weyl family) and the classical configuration crossing
+finished: Wg (h=1) 300  Wg07 (h=0.7) 60  Wg05 (h=0.5) 60  Wg035 (h=0.35) 60  Wg025 (h=0.25) 60  Wg018 (h=0.18) 60  Wg012 (h=0.12) 60  W6g 66
+
+== checks (truncation 'top2' should be < ~1e-4; 'edge' = minimum in the last grid cell, pmax too small)
+   Wg      h=1     n=300  edge   0  top2 max nan  misconv 0  cpu fallbacks 0  pmax [7.0]
+   Wg07    h=0.7   n= 60  edge   0  top2 max 2.8e-05  misconv 0  cpu fallbacks 0  pmax [7.0]
+   Wg05    h=0.5   n= 60  edge   0  top2 max 3.6e-05  misconv 0  cpu fallbacks 0  pmax [7.0]
+   Wg035   h=0.35  n= 60  edge   0  top2 max 7.9e-05  misconv 0  cpu fallbacks 0  pmax [7.0]
+   Wg025   h=0.25  n= 60  edge   0  top2 max 1.9e-05  misconv 0  cpu fallbacks 0  pmax [5.0]
+   Wg018   h=0.18  n= 60  edge   0  top2 max 1.8e-05  misconv 0  cpu fallbacks 0  pmax [5.0]
+   Wg012   h=0.12  n= 60  edge   0  top2 max 1.4e-05  misconv 0  cpu fallbacks 0  pmax [5.0]
+
+== n = 4: 60 instances with gap results; classical crossing (branches.py) in 17
+   crossing instances: p_c, then p* at h = 1, 0.7, 0.5, 0.35, 0.25, 0.18, 0.12  (* = edge)
+        1  p_c  0.485  |   3.773    2.651    1.932    1.413    1.078    0.851    0.671   |  p0 quad +0.286 lin3 +0.292
+        6  p_c  3.645  |   6.458    4.997    4.276    4.067    3.947    3.862    3.789   |  p0 quad +3.871 lin3 +3.644
+       18  p_c  0.740  |   3.710    2.715    2.080    1.624    1.339    1.159    1.028   |  p0 quad +0.702 lin3 +0.736
+       29  p_c  1.625  |   4.273    3.090    2.432    2.133    1.974    1.870    1.785   |  p0 quad +1.712 lin3 +1.609
+       38  p_c  1.785  |   5.086    3.812    3.005    2.447    2.154    2.030    1.944   |  p0 quad +1.625 lin3 +1.746
+       44  p_c  1.160  |   4.623    3.418    2.646    2.089    1.733    1.502    1.344   |  p0 quad +0.934 lin3 +0.977
+       49  p_c  0.800  |   3.890    2.870    2.227    1.773    1.483    1.281    1.105   |  p0 quad +0.781 lin3 +0.758
+       94  p_c  3.420  |   5.843    4.663    4.142    3.906    3.762    3.663    3.580   |  p0 quad +3.576 lin3 +3.412
+       99  p_c  0.610  |   4.189    3.034    2.291    1.751    1.398    1.154    0.945   |  p0 quad +0.538 lin3 +0.528
+      133  p_c  1.215  |   5.396    3.918    2.967    2.276    1.831    1.539    1.362   |  p0 quad +0.842 lin3 +0.914
+      134  p_c  0.215  |   3.603    2.517    1.822    1.320    0.995    0.772    0.584   |  p0 quad +0.212 lin3 +0.205
+      162  p_c  0.760  |   4.660    3.481    2.714    2.147    1.770    1.505    1.273   |  p0 quad +0.832 lin3 +0.816
+      190  p_c  0.640  |   5.160    3.607    2.611    1.893    1.433    1.123    0.873   |  p0 quad +0.345 lin3 +0.353
+      218  p_c  1.265  |   5.399    3.960    3.033    2.359    1.927    1.647    1.466   |  p0 quad +0.962 lin3 +1.027
+      231  p_c  1.965  |   4.527    3.413    2.777    2.476    2.318    2.213    2.127   |  p0 quad +2.037 lin3 +1.950
+      264  p_c  0.810  |   4.056    2.903    2.179    1.671    1.357    1.156    1.010   |  p0 quad +0.660 lin3 +0.685
+      267  p_c  4.190  |   5.645    5.165    4.869    4.657    4.519    4.425    4.345   |  p0 quad +4.193 lin3 +4.184
+   crossing instances: Delta_min at the same h
+        1  ham 2  xsq_c 0.306  |  7.89e-02  6.52e-02  5.23e-02  3.90e-02  2.73e-02  1.68e-02  5.93e-03  |  S +0.341
+        6  ham 1  xsq_c 3.168  |  3.28e-02  1.63e-02  3.35e-03  1.20e-04  1.29e-06  7.08e-09  5.23e-09  |  S +2.152
+       18  ham 1  xsq_c 0.363  |  4.16e-01  3.56e-01  3.10e-01  2.72e-01  2.46e-01  2.28e-01  2.06e-01  |  S +0.060
+       29  ham 2  xsq_c 1.418  |  2.69e-02  1.39e-02  3.41e-03  1.34e-04  1.26e-06  1.46e-08  4.13e-08  |  S +1.819
+       38  ham 1  xsq_c 1.425  |  1.55e-01  1.19e-01  8.25e-02  4.42e-02  1.45e-02  2.20e-03  6.28e-05  |  S +1.153
+       44  ham 1  xsq_c 0.825  |  2.29e-01  1.94e-01  1.59e-01  1.21e-01  8.38e-02  4.86e-02  1.45e-02  |  S +0.378
+       49  ham 1  xsq_c 0.433  |  4.00e-01  3.55e-01  3.17e-01  2.79e-01  2.46e-01  2.13e-01  1.72e-01  |  S +0.094
+       94  ham 1  xsq_c 2.942  |  7.58e-02  3.33e-02  6.62e-03  3.92e-04  8.25e-06  4.15e-08  5.09e-08  |  S +1.927
+       99  ham 2  xsq_c 0.183  |  1.11e-01  9.67e-02  8.31e-02  6.89e-02  5.61e-02  4.41e-02  3.02e-02  |  S +0.157
+      133  ham 1  xsq_c 0.956  |  7.69e-02  6.48e-02  5.26e-02  3.90e-02  2.59e-02  1.33e-02  2.10e-03  |  S +0.507
+      134  ham 2  xsq_c 0.050  |  1.18e-01  1.02e-01  8.68e-02  7.22e-02  5.98e-02  4.94e-02  3.86e-02  |  S +0.125
+      162  ham 2  xsq_c 0.076  |  7.39e-02  6.61e-02  5.91e-02  5.21e-02  4.59e-02  4.05e-02  3.45e-02  |  S +0.083
+      190  ham 1  xsq_c 0.524  |  5.41e-02  4.78e-02  4.13e-02  3.38e-02  2.64e-02  1.89e-02  9.65e-03  |  S +0.228
+      218  ham 1  xsq_c 0.903  |  9.95e-02  9.00e-02  7.88e-02  6.36e-02  4.58e-02  2.61e-02  6.39e-03  |  S +0.399
+      231  ham 2  xsq_c 1.587  |  5.80e-02  3.17e-02  9.61e-03  6.43e-04  1.33e-05  7.54e-08  8.05e-08  |  S +1.915
+      264  ham 1  xsq_c 0.524  |  2.63e-01  2.17e-01  1.73e-01  1.28e-01  8.81e-02  5.33e-02  1.97e-02  |  S +0.341
+      267  ham 2  xsq_c 3.845  |  4.60e-04  2.48e-06  4.77e-09  1.65e-08  9.77e-10  2.45e-08  2.03e-09  |  S +0.112
+
+   crossing (17): extrapolated p*(h -> 0) - p_c: quadratic median -0.038 (|.| < 0.2 in 71 %), linear-3 median -0.039;  Spearman(p0 quad, p_c) +0.975;  vs p_gmin_cl: median -0.038
+      ln Delta_min (h <= 0.5): -S/h fits better than k ln h in 53 % of 17;  median S +0.341, median k +1.491
+      Spearman(S, ham_c * xsq_c) +0.735;  median S / (ham_c * xsq_c) 0.540 (WKB: S proportional to the distance between the two cat configurations squared)
+
+   no crossing (43): extrapolated p*(h -> 0) - p_first: quadratic median -0.002 (|.| < 0.2 in 100 %), linear-3 median -0.009;  Spearman(p0 quad, p_first) +0.928;  vs p_gmin_cl: median -0.823
+      ln Delta_min (h <= 0.5): -S/h fits better than k ln h in 7 % of 43;  median S +0.149, median k +0.684
+
+== n = 6 (G6, first 300 instances): trap 25.0 %, classical crossing 12.0 % (n = 4: trap 9.1 %, crossing 5.4 %); crossing among trap 47 %
+   W6g (h = 1, cutoff 18, pmax 5.0): 66 instances, edge 9, top2 max 1.5e-05
+   crossing     36: Delta_min median 3.397e-01 (n = 4, h = 1: crossing 7.9e-02, no crossing 1.0e+00);  p* - p_c median +2.641
+   no crossing  30: Delta_min median 9.137e-01 (n = 4, h = 1: crossing 7.9e-02, no crossing 1.0e+00);  p* - p_c median +2.533

@@ -1,0 +1,116 @@
+== fig1_schematic
+written: /home/claude/msbqa_phase1/paper1_figs/fig1_schematic.pdf
+== fig2_who_wins
+test instances: 300;  classes: other 273, crossing 17, trap, no crossing 10
+quantum (weyl, h = 1, T = 700) mean: all 0.9958, crossing 0.9272, other 0.9999;  goto family mean 0.9889
+L2g eps=1e-6 (Goto 2016 classical)            mean B 0.886 (crossing 0.400, no crossing 0.915) | Q-B>0.1:  90 [crossing 16, trap-no-cross 10, other 64] | Q-B>0.2:  62 | B-Q>0.02:   1
+L2g eps*=0.03                                 mean B 0.948 (crossing 0.337, no crossing 0.985) | Q-B>0.1:  31 [crossing 16, trap-no-cross 3, other 12] | Q-B>0.2:  20 | B-Q>0.02:   0
+L3 eps*=0.001                                 mean B 0.958 (crossing 0.351, no crossing 0.995) | Q-B>0.1:  17 [crossing 15, trap-no-cross 2, other 0] | Q-B>0.2:  15 | B-Q>0.02:   1
+L4 eps*=1e-06                                 mean B 0.964 (crossing 0.544, no crossing 0.990) | Q-B>0.1:  14 [crossing 10, trap-no-cross 2, other 2] | Q-B>0.2:  14 | B-Q>0.02:   1
+bSB* (c 0.5; dt 1; 10000 steps; A 0.001)      mean B 1.000 (crossing 1.000, no crossing 1.000) | Q-B>0.1:   0 [crossing 0, trap-no-cross 0, other 0] | Q-B>0.2:   0 | B-Q>0.02:   3
+dSB* (c 0.5; dt 0.5; 10000 steps; A 0.001)    mean B 0.991 (crossing 0.955, no crossing 0.993) | Q-B>0.1:   8 [crossing 2, trap-no-cross 0, other 6] | Q-B>0.2:   3 | B-Q>0.02:   3
+crossing instances: best KPO-type (max L2g/L3/L4 at eps*) mean 0.571, quantum 0.927, Q - best KPO > 0.1 on 10 of 17
+goto family: bSB* - Q_goto > 0.02 on 30
+written: /home/claude/msbqa_phase1/paper1_figs/fig2_who_wins.pdf
+== fig_classical_failure
+instances in the noise scan: 500  (crossing: 26)
+(a) p_dep - mu_dec: median +0.008, 90% |.| 0.022, Spearman +0.997, n = 2000
+(b) no crossing : P mean at x > 0 0.989 (n 978), at x < 0 0.884 (n 1392)
+(b) crossing    : P mean at x > 0 0.384 (n 16), at x < 0 0.395 (n 114)
+(c) instances with NS and all available TWA tags: 100; TWA tags found: h=1:300, h=0.7:300, h=0.5:100, h=0.35:100, h=0.25:100, h=0.1:100, h=0.05:100, h=0.02:100, h=0.005:100, h=0.001:100
+    sigma      classical L2g          TWA
+     5.77e-09   0.843 +- 0.021
+     5.77e-07   0.867 +- 0.022
+     5.77e-05   0.903 +- 0.020
+     5.77e-04   0.923 +- 0.018
+     5.77e-03   0.933 +- 0.018
+     1.58e-02                         0.931 +- 0.020
+     1.73e-02   0.931 +- 0.020
+     3.54e-02                         0.929 +- 0.020
+     5.77e-02   0.928 +- 0.020
+     7.07e-02                         0.927 +- 0.020
+     1.12e-01                         0.919 +- 0.019
+     1.58e-01                         0.892 +- 0.018
+     1.73e-01   0.883 +- 0.018
+     2.50e-01                         0.809 +- 0.019
+     2.96e-01                         0.762 +- 0.019
+     3.54e-01                         0.700 +- 0.018
+     4.18e-01                         0.630 +- 0.017
+     5.00e-01                         0.541 +- 0.015
+     5.77e-01   0.467 +- 0.013
+    quantum L0 (h = 1) on the same instances: 0.9979
+written: /home/claude/msbqa_phase1/paper1_figs
+== fig4_crossing_anatomy
+instance 29: Delta [0.6352 0.4552 0.6299 0.285 ], lam1 0.1452, lam2 0.1890; branches_weyl.csv: cross 1, p_c 1.625, ham_c 2.0, xsq_c 1.418
+recomputed: p_c 1.625 (csv 1.625); ground cfg [ 1  1 -1 -1] born at 0.250; replaced cfg [ 1 -1 -1  1] born at 0.150; Hamming 2
+h = 1     cutoff 22  p* 4.273  Delta_min 2.692e-02  
+h = 0.7   cutoff 26  p* 3.090  Delta_min 1.394e-02  
+h = 0.5   cutoff 32  p* 2.432  Delta_min 3.406e-03  
+h = 0.35  cutoff 40  p* 2.133  Delta_min 1.339e-04  
+h = 0.25  cutoff 42  p* 1.974  Delta_min 1.265e-06  
+h = 0.18  cutoff 53  p* 1.870  Delta_min 1.456e-08  (below solver resolution)
+h = 0.12  cutoff 72  p* 1.785  Delta_min 4.128e-08  (below solver resolution)
+panel (a) y-range +-0.0292 (max |E_trap - E_ground| for p <= p_c + 1.5)
+written: /home/claude/msbqa_phase1/paper1_figs/fig4_crossing_anatomy.pdf
+== fig5_gap_law
+instances 60: crossing 17, no crossing 43
+(a) crossing (vs p_c)         : p*(h->0) - ref median -0.038, |.|<0.2 in 71%, Spearman(p0, ref) +0.975;  p*(h=1) - ref median +3.29
+(a) no crossing (vs p_first)  : p*(h->0) - ref median -0.002, |.|<0.2 in 100%, Spearman(p0, ref) +0.928;  p*(h=1) - ref median +2.28
+(b) crossing    : fitted 16 (excluded, < 3 points above floor: 1); exp(-S/h) better on 12 of 16; median S 0.360
+(b) no crossing : fitted 43 (excluded, < 3 points above floor: 0); exp(-S/h) better on 3 of 43; median S 0.149
+(c) crossing: Spearman(S, ham_c*xsq_c) +0.944 (N 16); S/(ham_c*xsq_c): median 0.55, range 0.17-1.40
+    inst 6: points 3, S 3.933, ham*xsq 3.168, ratio 1.24
+    inst 29: points 3, S 3.956, ham*xsq 2.835, ratio 1.40
+    inst 94: points 3, S 3.345, ham*xsq 2.942, ratio 1.14
+    inst 231: points 3, S 3.297, ham*xsq 3.173, ratio 1.04
+    points below 1e-06: 13 (instances [6, 29, 94, 231, 267])
+(d) weyl: instances with P_LZ > 0.01: 4;  (P_LZ, 1-P_Q): #6 0.017/0.016, #29 0.179/0.184, #231 0.022/0.027, #267 0.999/0.999
+    failure floor where P_LZ < 1e-6: median 1-P_Q 4.2e-05, mean 6.0e-05 (N 289)
+    crossing instances: mean LZ success 0.928, measured 0.927
+(d) goto: instances with P_LZ > 0.01: 10;  (P_LZ, 1-P_Q): #1 0.069/0.072, #6 0.168/0.155, #29 0.727/0.614, #94 0.037/0.035, #99 0.010/0.017, #134 0.014/0.017, #162 0.012/0.021, #190 0.012/0.018, #231 0.257/0.237, #267 1.000/1.000
+    failure floor where P_LZ < 1e-6: median 1-P_Q 2.0e-04, mean 8.8e-04 (N 242)
+    crossing instances: mean LZ success 0.864, measured 0.871
+written: /home/claude/msbqa_phase1/paper1_figs/fig5_gap_law.pdf
+== fig6_intervention
+KO    N  40  median Dmin_K 1.310e-01  Dmin_U 2.672e-01  geo-median ratio 1.733  frac U>K 1.00
+MO    N  26  median Dmin_K 4.158e-01  Dmin_U 2.539e-01  geo-median ratio 0.632  frac U>K 0.00
+BOTH  N  13  median Dmin_K 1.280e-01  Dmin_U 1.386e-01  geo-median ratio 0.991  frac U>K 0.46
+CTRL  N  40  median Dmin_K 1.018e+00  Dmin_U 1.171e+00  geo-median ratio 1.158  frac U>K 0.95
+NEG   N   4  median Dmin_K 4.533e-02  Dmin_U 3.378e-02  geo-median ratio 0.697  frac U>K 0.25
+direction as predicted: 66 of 66
+paired regression over 123 selected instances: ln(U/K) = +0.17 -0.88 * delta_cross -> factor 2.42 per crossing
+classical KO: L2 0.438 -> 0.673, L3 0.366 -> 0.720, L4 0.642 -> 0.889
+classical MO: L2 0.696 -> 0.381, L3 0.842 -> 0.330, L4 0.852 -> 0.658
+classical BOTH: L2 0.401 -> 0.388, L3 0.297 -> 0.402, L4 0.386 -> 0.720
+written: /home/claude/msbqa_phase1/paper1_figs/fig6_intervention.pdf
+== fig7_sb_n6
+(a) ablation: 500 instances, trap 43
+    L4         trap 0.714  non-trap 0.993  all 0.969
+    L4 +D      trap 0.856  non-trap 0.983  all 0.972
+    L4 +af     trap 0.793  non-trap 1.000  all 0.982
+    L4 +T      trap 0.778  non-trap 1.000  all 0.981
+    L4 +init   trap 0.767  non-trap 0.995  all 0.976
+    L4 +c      trap 0.377  non-trap 0.986  all 0.934
+    bSB* -D    trap 0.651  non-trap 0.987  all 0.958
+    bSB* -T    trap 0.997  non-trap 0.998  all 0.998
+    bSB*       trap 1.000  non-trap 0.998  all 0.998
+(b) Ising window: 500 instances
+    mean detuning, crossing instances N  17: base 0.535, hold@Dbar 1000 0.806, hold@pf 1000 0.535
+    kpo  detuning, crossing instances N  26: base 0.541, hold@Dbar 1000 0.641, hold@pf 1000 0.541
+    control (no trap, no crossing) N 427: mean base 0.995, mean hold@Dbar 1000 0.999, mean hold@pf 1000 0.995, kpo base 0.999, kpo hold@Dbar 1000 0.999, kpo hold@pf 1000 0.999
+    bSB* on the uniform-detuning crossing instances: 0.941
+(c) n=4: trap 0.087, crossing 17/300;  n=6: trap 0.250, crossing 36/300, crossing with gap 36
+    cross. frac.           n=4 0.057   n=6 0.120
+    L2 $\varepsilon^*$     n=4 0.337   n=6 0.239
+    L4 $\varepsilon^*$     n=4 0.544   n=6 0.432
+    bSB$^*$                n=4 1.000   n=6 0.972
+    quantum                n=4 0.927   n=6 0.927
+    n=6 Dmin median crossing 0.326, no crossing 0.914;  bSB* == 0 on 10 instances
+written: /home/claude/msbqa_phase1/paper1_figs/fig7_sb_n6.pdf
+== check_classes_n6
+(1) G4 test set: trap without crossing N 10; first-born branch = ground configuration in 10 of 10
+    L2 eps=1e-6 0.613 -> L2 eps* 0.894;  L3 eps* 0.923;  L4 eps* 0.876;  quantum 1.000
+    for comparison, crossing instances (N 17): first-born = ground in 0; L2 eps* 0.337
+(2) n = 4: instances 300, mean detuning 0.744, crossing 17, median p_c - Dbar on crossing 0.421, median Ising gap all 0.724 / crossing 0.052, ground not the lowest branch at pf 0.000
+(2) n = 6: instances 300, mean detuning 1.254, crossing 36, median p_c - Dbar on crossing 0.121, median Ising gap all 0.652 / crossing 0.231, ground not the lowest branch at pf 0.020
+    Ising gap ratio n=6/n=4: all 0.90, crossing 4.40

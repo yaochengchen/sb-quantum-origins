@@ -1,0 +1,10 @@
+device: NVIDIA RTX PRO 6000 Blackwell Server Edition   cupy 13.6.0
+[PASS] GPU H psi == KPOSector.matvec (n=3, d=6, goto, h=0.7) max 1.4e-14
+[PASS] GPU H psi == KPOSector.matvec (n=3, d=6, weyl, h=0.7) max 1.5e-14
+[PASS] GPU H psi == KPOSector.matvec (n=4, d=8, goto, h=1.0) max 9.0e-14
+[PASS] GPU Lanczos exponential == kpo_common._krylov_exp (n=4, d=8, batch 3) max 2.1e-16  k [24, 24, 24]
+[PASS] GPU propagation == CPU engine, fixed dt 0.05 (n=4, d=8, batch 3) max 3.0e-14  steps 1201
+[PASS] GPU adaptive propagation vs DOP853 (n=2, d=8, batch 2, dt_max 0.05) max 5.5e-08  steps 401
+[PASS] GPU two-spin ferromagnet success > 0.95 P_succ=0.99897 steps=4280
+[INFO] 13 instances, n 4, cutoff 18 (sector dim 65161): 38.9 ms per step -> 6.5 min per 10 000 steps
+SELFTEST_GPU_OK

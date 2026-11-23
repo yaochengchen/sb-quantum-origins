@@ -1,0 +1,13 @@
+MSBQA phase 1c: classical configuration branches (300 instances, n = 6, dp = 0.005)
+
+== weyl (classical detuning Delta - 0)
+   ground configuration lowest at p = pf: 98.0 %;  first branch = ground: 86.3 %;  first branch = sign(v1): 86.0 %
+   crossing (another configuration lowest first, ground takes over at p_c): 36 of 300 (12.0 %); among trap instances 46.7 %, non-trap 0.4 %;  ground never lowest at pf: 6;  kind: energy crossing 35, ground branch born at p_c 1
+   p_c on crossing instances: median p_c - lam1 0.892, p_c - lam2 0.744;  Hamming(mod Z2) at p_c: 1: 17, 2: 13, 3: 6
+
+== goto_h1 (classical detuning Delta - 1)
+   ground configuration lowest at p = pf: 98.3 %;  first branch = ground: 73.0 %;  first branch = sign(v1): 71.7 %
+   crossing (another configuration lowest first, ground takes over at p_c): 29 of 300 (9.7 %); among trap instances 37.3 %, non-trap 0.4 %;  ground never lowest at pf: 5;  kind: energy crossing 28, ground branch born at p_c 1
+   p_c on crossing instances: median p_c - lam1 0.186, p_c - lam2 -0.197;  Hamming(mod Z2) at p_c: 1: 15, 2: 11, 3: 3
+
+(quantum comparison skipped: it uses run_v4/phase1b/per_instance_1b.csv, which belongs to the set G4)

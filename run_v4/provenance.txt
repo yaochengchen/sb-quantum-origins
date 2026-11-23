@@ -1,0 +1,27 @@
+date: 2026-10-30T12:53:00+09:00  host: pu1  cpus: 160  gpus used: 8  cpu workers: 148
+0, NVIDIA RTX PRO 6000 Blackwell Server Edition, 610.57.04
+1, NVIDIA RTX PRO 6000 Blackwell Server Edition, 610.57.04
+2, NVIDIA RTX PRO 6000 Blackwell Server Edition, 610.57.04
+3, NVIDIA RTX PRO 6000 Blackwell Server Edition, 610.57.04
+4, NVIDIA RTX PRO 6000 Blackwell Server Edition, 610.57.04
+5, NVIDIA RTX PRO 6000 Blackwell Server Edition, 610.57.04
+6, NVIDIA RTX PRO 6000 Blackwell Server Edition, 610.57.04
+7, NVIDIA RTX PRO 6000 Blackwell Server Edition, 610.57.04
+numpy 2.5.4 scipy 1.18.1 cupy 13.6.0
+sha256:
+bb3ececedfbb515455daf428b43b02539c51e2e9d1b6deb95822ea13c951c3c6  code/analyze.py
+0c4dfc47a1940199a4a3ed6cd596675584716240779c7ed1b20459682698cd42  code/calib.py
+99de4664602dec7cb552d0d0688c8117823a95862d409812ea917f1dd97f0220  code/estimate.py
+c11b2ebf29514e8f1064d86fcee05737854bc7ced8ed1ad0e70a8e0c27709379  code/gen_instances.py
+0f0a7586f6adb50477d6d2d4541696a8492ff1a0764d1bc62b56c1298d50426c  code/kpo_common.py
+a2c105299ade6c36b6a0dc473c889975c064d9cc0e90bb9b8eead6fff3d8f230  code/kpo_gpu.py
+95971b50ea9436defc3b0e9068e2f8bf51ad7064cca0799af3a2b81f017d55f5  code/make_tasks.py
+3369b2d8dfdaa9da1410d65b5a452d8e7d0f35ff02acd05e633cf0d77376840e  code/probe_speed.py
+57f0ddd0e85409d77febb97a25dde1b7bc71af1f95830a4a02c1474c1fae8a10  code/run_classical.py
+4e6fa2230870520f10bbfd0ac8024c9b985117a54dfa19172aadfa51a6dd8621  code/run_quantum_gpu.py
+34f73cb218b5fa18d4799eb8d4d944441bb2436a5ccc469bf193e3de4428e689  code/run_quantum.py
+a455576f15dcee5bd9efd22854273b9c494ef1c4634f99b499b53bfac7846029  code/scan.py
+a7a331a213a498f64e78927b78bd63e08394a45c0baeb7847650f97397f1895e  code/selftest_gpu.py
+1075596cbd32f9a88ac867b1d98785a13dd4c14f91f48721e5e1b31c25d20393  code/selftest.py
+4074749167e1c6f3d4515e1c53f1b9e0fe3d3e1115a39143a4ead31dc55d613e  plan.txt
+a2af70d62b40acf838b5b22cfc39747b500fab31ff96541931be2d8dcaf83867  instances/G4.npz

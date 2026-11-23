@@ -1,0 +1,22 @@
+# MSBQA phase 1b plan, GPU part (2026-10-31): quantum L0 runs, same format and code as plan.txt
+# (code/run_quantum_gpu.py), same settings as the corresponding phase-1 lines. Finished instances are skipped,
+# so the lines that reuse a phase-1 tag only add the new instances 100-299.
+# Run (at the same time as run_1b.sh):  nohup bash run_gpu_1b.sh > run_gpu_1b.log 2>&1 &
+# Lines are done in this order on every GPU (instances i % 8 == g); estimated per GPU from the phase-1 timings
+# (19.5 min per batch of 13 at h = 1, T = 700, assumed linear in the batch size), total ~5.5 h:
+#   G0q, Wq 100-299 (~35 min each) | GqT200 0-99 (~6) | WqT200 100-299 (~12) | GqT2000 0-99 (~56) |
+#   WqT2000 100-299 (~110) | Wq07 100-299 (~75)
+# Columns ('-' = not used):
+# tag       kind       family  set  lo   hi    T     pf  h     cutoff  R      tol     dtmax  dtcl
+#
+# 1. more instances at Goto's settings (h = 1, T = 700), both families: 100 -> 300 quantum instances
+G0q         quantum    goto    G4   0    299   700   7   1.0   22      -      1e-8    0.1    -
+Wq          quantum    weyl    G4   0    299   700   7   1.0   22      -      1e-8    0.1    -
+# 2. annealing time in the goto family (Goto's own Hamiltonian), for the Landau-Zener test with the Gg gaps
+GqT200      quantum    goto    G4   0    99    200   7   1.0   22      -      1e-8    0.1    -
+# 3. annealing time in the weyl family on the new instances (pairs with Wg 0-299 and WcT200/WcT2000)
+WqT200      quantum    weyl    G4   0    299   200   7   1.0   22      -      1e-8    0.1    -
+GqT2000     quantum    goto    G4   0    99    2000  7   1.0   22      -      1e-8    0.1    -
+WqT2000     quantum    weyl    G4   0    299   2000  7   1.0   22      -      1e-8    0.1    -
+# 4. h = 0.7 on the new instances (pairs with Wc07)
+Wq07        quantum    weyl    G4   0    299   700   7   0.7   26      -      1e-8    0.1    -

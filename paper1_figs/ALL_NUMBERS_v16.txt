@@ -1,0 +1,66 @@
+== fig1_B1
+/tmp/fd/paper1_figs
+
+== fig2_who_wins_v16
+test instances: 300;  classes: other 273, crossing 17, trap, no crossing 10
+L2g eps=1e-6 (Goto 2016 classical)            Q-B>0.1:  90 [crossing 16, trap-no-cross 10, other 64] | B-Q>0.02:   1 | min(Q-B) -0.041
+L2g eps*=0.03                                 Q-B>0.1:  31 [crossing 16, trap-no-cross 3, other 12] | B-Q>0.02:   0 | min(Q-B) -0.019
+L3 eps*=0.001                                 Q-B>0.1:  17 [crossing 15, trap-no-cross 2, other 0] | B-Q>0.02:   1 | min(Q-B) -0.023
+L4 eps*=1e-06                                 Q-B>0.1:  14 [crossing 10, trap-no-cross 2, other 2] | B-Q>0.02:   1 | min(Q-B) -0.023
+bSB* (c 0.5; dt 1; 10000 steps; A 0.001)      Q-B>0.1:   0 [crossing 0, trap-no-cross 0, other 0] | B-Q>0.02:   3 | min(Q-B) -0.999
+dSB* (c 0.5; dt 0.5; 10000 steps; A 0.001)    Q-B>0.1:   8 [crossing 2, trap-no-cross 0, other 6] | B-Q>0.02:   3 | min(Q-B) -0.999
+written: /tmp/fd/paper1_figs/fig2_who_wins_v16.pdf
+
+== fig_classical_failure_v16
+instances in the noise scan: 500  (crossing: 26)
+(a) p_dep - mu_dec: median +0.008, 90% |.| 0.022, Spearman +0.997, n = 2000
+(b) no crossing : P mean at x > 0 0.989 (n 978), at x < 0 0.884 (n 1392)
+(b) crossing    : P mean at x > 0 0.384 (n 16), at x < 0 0.395 (n 114)
+(c) instances with NS and all available TWA tags: 100; TWA tags found: h=1:300, h=0.7:300, h=0.5:100, h=0.35:100, h=0.25:100, h=0.1:100, h=0.05:100, h=0.02:100, h=0.005:100, h=0.001:100
+    sigma      classical L2g          TWA
+     5.77e-09   0.843 +- 0.021
+     5.77e-07   0.867 +- 0.022
+     5.77e-05   0.903 +- 0.020
+     5.77e-04   0.923 +- 0.018
+     5.77e-03   0.933 +- 0.018
+     1.58e-02                         0.931 +- 0.020
+     1.73e-02   0.931 +- 0.020
+     3.54e-02                         0.929 +- 0.020
+     5.77e-02   0.928 +- 0.020
+     7.07e-02                         0.927 +- 0.020
+     1.12e-01                         0.919 +- 0.019
+     1.58e-01                         0.892 +- 0.018
+     1.73e-01   0.883 +- 0.018
+     2.50e-01                         0.809 +- 0.019
+     2.96e-01                         0.762 +- 0.019
+     3.54e-01                         0.700 +- 0.018
+     4.18e-01                         0.630 +- 0.017
+     5.00e-01                         0.541 +- 0.015
+     5.77e-01   0.467 +- 0.013
+    quantum L0 (h = 1) on the same instances: 0.9979
+(b) binned no crossing: [-inf,-10) 0.78 (n 323), [-10,-8) 0.88 (n 145), [-8,-6) 0.88 (n 174), [-6,-4) 0.92 (n 199), [-4,-2) 0.92 (n 264), [-2,0) 0.95 (n 287), [0,2) 0.97 (n 235), [2,4) 0.98 (n 187), [4,6) 0.99 (n 133), [6,8) 1.00 (n 102), [8,10) 1.00 (n 79), [10,inf) 1.00 (n 242)
+(b) binned crossing: [-inf,-10) 0.40 (n 36), [-10,-8) 0.40 (n 10), [-8,-6) 0.43 (n 13), [-6,-4) 0.37 (n 19), [-4,-2) 0.41 (n 20), [-2,0) 0.37 (n 16), [0,2) 0.39 (n 11), [2,4) 0.39 (n 4), [4,6) 0.30 (n 1)
+written: /tmp/fd/paper1_figs
+
+== fig4_crossing_anatomy_v16
+#29: p_c 1.625; competing [ 1 -1 -1  1], ground [ 1  1 -1 -1]; min E_A - E_B -0.0126 at p 0.615
+h = 1   : p* 4.273, Delta_min 2.692e-02, curve points 157
+h = 0.7 : p* 3.090, Delta_min 1.394e-02, curve points 157
+h = 0.5 : p* 2.432, Delta_min 3.406e-03, curve points 157
+h = 0.35: p* 2.133, Delta_min 1.339e-04, curve points 161
+h = 0.25: p* 1.974, Delta_min 1.265e-06, curve points 123
+written: /tmp/fd/paper1_figs/fig4_crossing_anatomy_v16.pdf
+
+== fig5_gap_law_v16
+(a) crossing (vs p_c)         : p*(h->0) - ref median -0.038, |.|<0.2 in 71%, Spearman +0.975;  p*(h=1) - ref median +3.29
+(a) no crossing (vs p_first)  : p*(h->0) - ref median -0.002, |.|<0.2 in 100%, Spearman +0.928;  p*(h=1) - ref median +2.28
+(b) crossing    : fitted 16; exp(-S/h) better on 12 of 16
+(b) no crossing : fitted 43; exp(-S/h) better on 3 of 43
+(c) Spearman(S, d_H x_c^2) +0.944 (N 16); S/(d_H x_c^2) median 0.55, range 0.17-1.40
+(d) weyl: shown (P_LZ >= 1e-5) 10; mean failure where P_LZ < 1e-6 6.0e-05 (N 289);  P_LZ > 0.01: #6 0.017/0.016, #29 0.179/0.184, #231 0.022/0.027, #267 0.999/0.999
+(d) goto: shown (P_LZ >= 1e-5) 53; mean failure where P_LZ < 1e-6 8.8e-04 (N 242);  P_LZ > 0.01: #1 0.069/0.072, #6 0.168/0.155, #29 0.727/0.614, #94 0.037/0.035, #99 0.010/0.017, #134 0.014/0.017, #162 0.012/0.021, #190 0.012/0.018, #231 0.257/0.237, #267 1.000/1.000
+written: /tmp/fd/paper1_figs/fig5_gap_law_v16.pdf
+
+== fig6_intervention_v14
+
+== fig7_sb_n6_v15

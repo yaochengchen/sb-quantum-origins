@@ -1,0 +1,49 @@
+MSBQA 1d report
+
+== A. checks
+   G4U: J identical to G4: True;  Delta = max_i Delta_i of G4 on every spin: True
+   G4U_info vs branches_weyl_max.csv on 1000 instances: trap != trapU 0 (should be 0), max |lam1 diff| 5.0e-11, |lam2 diff| 4.9e-10 (should be < 1e-8);  G4 trap != trapK 0 (0)
+   finished: per-spin gaps 360 (Wg + Wg1d), uniform gaps 123 (WgU), G0c 1000, G0cU 1000, IW 500;  selected instances 123
+   IW 'kpo base' vs sb_ablate 'L4' on 500 instances: max |diff| = 0.00e+00 (should be 0)
+   IW 'mean base' vs sb_ablate 'L4 +D' on 500 instances: max |diff| = 0.00e+00 (should be 0)
+   checks: OK
+
+== B. quantum minimum gap (weyl, h = 1, cutoff 22) with per-spin (K) vs uniform max (U) detuning
+   group  pred      N   median D_K   median D_U   ratio U/K (geo. median)   frac U>K   median p*_K  p*_U   edge K/U
+   KO     opens     40    1.310e-01    2.672e-01         1.73                  1.00       4.68    4.69   0/0
+   MO     closes    26    4.158e-01    2.539e-01        0.632                  0.00       4.08    4.74   0/1
+   BOTH   -         13    1.280e-01    1.386e-01        0.991                  0.46       5.01    5.65   0/0
+   NEG    -          4    4.533e-02    3.378e-02        0.697                  0.25       5.76    7.00   1/3
+   CTRL   ~1        40    1.018e+00    1.171e+00         1.16                  0.95       2.46    2.86   0/0
+   BOTH: #38 1.55e-01 -> 2.22e-01; #218 9.95e-02 -> 3.71e-02; #357 4.67e-02 -> 1.33e-01; #381 3.48e-02 -> 3.33e-02; #436 9.35e-02 -> 4.88e-02; #566 2.03e-01 -> 1.90e-01; #676 3.03e-01 -> 1.39e-01; #678 3.29e-01 -> 4.89e-01; #713 2.49e-01 -> 3.35e-01; #771 5.92e-02 -> 1.54e-01; #843 1.20e-01 -> 1.19e-01; #893 2.14e-01 -> 1.98e-01; #985 1.28e-01 -> 1.34e-01
+   NEG: #50 2.09e-01 -> 1.16e-01; #602 3.25e-02 -> 2.83e-02; #640 5.82e-02 -> 2.04e-02; #648 1.93e-02 -> 3.93e-02
+   kpo  detuning: crossing 54 instances median Delta_min 1.252e-01, no crossing 305 median 9.633e-01;  AUC(crossing -> smaller gap) 0.972;  median p* - p_c on crossing +3.27
+   max  detuning: crossing 39 instances median Delta_min 1.981e-01, no crossing 81 median 6.373e-01;  AUC(crossing -> smaller gap) 0.786;  median p* - p_c on crossing +3.30
+   VERDICT B: INCONCLUSIVE
+
+== C. classical KPO layers (T = 700, eps = 1e-6, R = 1000): per-spin G0c vs uniform G0cU
+   kpo  detuning, 999 instances, crossing 54: success crossing / no crossing:  L2g 0.429 / 0.905,  L3 0.349 / 0.965,  L4 0.569 / 0.991
+   max  detuning, 997 instances, crossing 39: success crossing / no crossing:  L2g 0.383 / 0.936,  L3 0.354 / 0.962,  L4 0.678 / 0.992
+   KO   (40 of all 1000): per-spin -> uniform  L2g 0.438 -> 0.673,  L3 0.366 -> 0.720,  L4 0.642 -> 0.889
+   MO   (26 of all 1000): per-spin -> uniform  L2g 0.696 -> 0.381,  L3 0.842 -> 0.330,  L4 0.852 -> 0.658
+   BOTH (13 of all 1000): per-spin -> uniform  L2g 0.401 -> 0.388,  L3 0.297 -> 0.402,  L4 0.386 -> 0.720
+
+== D. Ising window (L4 dynamics, ramp rate 0.01; hold for tau at p = Dbar or at p = pf), mean success
+   configuration                   all     kpo cross         trapK  trapK locmin    mean cross         trapU          none
+   (instances)                     500            26            43             5            17            45           427
+   kpo base                      0.969         0.541         0.714         0.146         0.727         0.788         0.999
+   kpo hold@Dbar 100             0.977         0.643         0.756         0.148         0.854         0.849         0.999
+   kpo hold@Dbar 300             0.978         0.641         0.755         0.148         0.879         0.859         0.999
+   kpo hold@Dbar 1000            0.978         0.641         0.755         0.148         0.880         0.859         0.999
+   kpo hold@pf 100               0.969         0.541         0.714         0.146         0.727         0.788         0.999
+   kpo hold@pf 300               0.969         0.541         0.714         0.146         0.727         0.788         0.999
+   kpo hold@pf 1000              0.969         0.541         0.714         0.146         0.727         0.788         0.999
+   mean base                     0.972         0.795         0.856         0.723         0.535         0.776         0.995
+   mean hold@Dbar 100            0.991         0.968         0.981         0.939         0.806         0.924         0.999
+   mean hold@Dbar 300            0.991         0.968         0.981         0.939         0.806         0.924         0.999
+   mean hold@Dbar 1000           0.991         0.968         0.981         0.939         0.806         0.924         0.999
+   mean hold@pf 100              0.972         0.795         0.856         0.723         0.535         0.776         0.995
+   mean hold@pf 300              0.972         0.795         0.856         0.723         0.535         0.776         0.995
+   mean hold@pf 1000             0.972         0.795         0.856         0.723         0.535         0.776         0.995
+   mean-detuning crossing instances (17): base 0.535, hold@Dbar 1000 0.806, hold@pf 1000 0.535
+   VERDICT D: NOT SUPPORTED

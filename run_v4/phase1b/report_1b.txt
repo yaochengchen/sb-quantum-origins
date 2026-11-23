@@ -1,0 +1,197 @@
+MSBQA phase 1b report from run_v4
+finished: NS 500  SBT 1000  Gg 300  Wg 300  Wg07 50  Wg05 50  Wg035 0  G0q 300  GqT200 100  GqT2000 100  Wq 300  WqT200 300  WqT2000 300  Wq07 300  Wq05 100  Wq035 50
+
+== A. check: noise scan at eps = 1e-6 against the phase-1 G0c results (same seeds, should be 0)
+   L2g  n =  500  max |NS - G0c| = 0.00e+00
+   L3   n =  500  max |NS - G0c| = 0.00e+00
+   L4   n =  500  max |NS - G0c| = 0.00e+00
+   L5   n =  500  max |NS - G0c| = 0.00e+00
+
+== B. noise scan (T = 700, R = 1000, dt = 0.0025): mean P_succ, training 200 / test 300 instances
+      eps       L2g train  test     L3 train  test     L4 train  test     L5 train  test 
+      1e-08       0.832  0.855     0.895  0.926     0.971  0.968     0.952  0.959
+      1e-06       0.861  0.886     0.927  0.943     0.976  0.964     0.951  0.957
+      1e-04       0.902  0.918     0.951  0.952     0.971  0.974     0.929  0.931
+      1e-03       0.917  0.932     0.954  0.958     0.974  0.975     0.922  0.928
+      1e-02       0.929  0.948     0.952  0.954     0.976  0.975     0.922  0.930
+      3e-02       0.937  0.948     0.945  0.951     0.975  0.974     0.926  0.932
+      1e-01       0.935  0.946     0.940  0.949     0.973  0.972     0.927  0.932
+      3e-01       0.861  0.888     0.900  0.924     0.966  0.971     0.931  0.938
+      1e+00       0.462  0.466     0.659  0.682     0.955  0.965     0.937  0.948
+   L2g: eps* = 0.03 (chosen on training set, mean 0.937); test mean at eps* 0.948
+   L3: eps* = 0.001 (chosen on training set, mean 0.954); test mean at eps* 0.958
+   L4: eps* = 1e-06 (chosen on training set, mean 0.976); test mean at eps* 0.964
+   L5: eps* = 1e-08 (chosen on training set, mean 0.952); test mean at eps* 0.959
+
+== C. bifurcation delay (departure = first max|x| > 0.1; eps <= 1e-3 clean, 1e-2 marginal)
+   L2g:   eps     med(p_dep - lam1)  frac departed after lam2   mean P_succ   trap: P_succ   non-trap: P_succ
+             1e-08       0.480              0.907             0.846         0.483           0.880
+             1e-06       0.400              0.827             0.876         0.497           0.911
+             1e-04       0.304              0.646             0.912         0.538           0.947
+             1e-03       0.246              0.500             0.926         0.555           0.961
+             1e-02       0.175              0.288             0.940         0.574           0.975
+      same instance and eps, success(depart <= lam2) - success(depart > lam2): 539 cases, mean +0.015, median +0.000, positive in 29 %
+      within instance across eps <= 1e-2, Spearman(frac after lam2, P_succ): trap median -0.224 (27 inst., negative in 52 %), non-trap median -0.707 (262 inst.)
+      trap instances (43): P at eps 1e-6 0.497, at eps* 0.564, per-instance best eps 0.667
+   L3:   eps     med(p_dep - lam1)  frac departed after lam2   mean P_succ   trap: P_succ   non-trap: P_succ
+             1e-08       0.454              0.848             0.913         0.504           0.952
+             1e-06       0.369              0.742             0.937         0.487           0.979
+             1e-04       0.272              0.558             0.952         0.614           0.984
+             1e-03       0.215              0.413             0.956         0.593           0.991
+             1e-02       0.148              0.241             0.953         0.548           0.992
+      same instance and eps, success(depart <= lam2) - success(depart > lam2): 500 cases, mean +0.003, median +0.000, positive in 16 %
+      within instance across eps <= 1e-2, Spearman(frac after lam2, P_succ): trap median  0.202 (26 inst., negative in 38 %), non-trap median -0.544 (99 inst.)
+      trap instances (43): P at eps 1e-6 0.487, at eps* 0.593, per-instance best eps 0.720
+   L4:   eps     med(p_dep - lam1)  frac departed after lam2   mean P_succ   trap: P_succ   non-trap: P_succ
+             1e-08       0.454              0.848             0.969         0.701           0.994
+             1e-06       0.369              0.742             0.969         0.714           0.993
+             1e-04       0.272              0.558             0.973         0.768           0.992
+             1e-03       0.215              0.414             0.974         0.772           0.993
+             1e-02       0.148              0.240             0.975         0.768           0.995
+      same instance and eps, success(depart <= lam2) - success(depart > lam2): 502 cases, mean +0.006, median +0.000, positive in 10 %
+      within instance across eps <= 1e-2, Spearman(frac after lam2, P_succ): trap median  0.612 (23 inst., negative in 30 %), non-trap median  0.707 (38 inst.)
+      trap instances (43): P at eps 1e-6 0.714, at eps* 0.714, per-instance best eps 0.831
+   L5:   eps     med(p_dep - lam1)  frac departed after lam2   mean P_succ   trap: P_succ   non-trap: P_succ
+             1e-08      -0.146              0.000             0.956         0.870           0.965
+             1e-06      -0.146              0.003             0.954         0.847           0.965
+             1e-04      -0.146              0.000             0.930         0.789           0.944
+             1e-03      -0.146              0.000             0.926         0.767           0.940
+             1e-02      -0.146              0.000             0.927         0.769           0.942
+      same instance and eps, success(depart <= lam2) - success(depart > lam2): 12 cases, mean +0.044, median +0.026, positive in 50 %
+      within instance across eps <= 1e-2, Spearman(frac after lam2, P_succ): trap median  0.354 (15 inst., negative in 13 %), non-trap median  0.354 (44 inst.)
+      trap instances (43): P at eps 1e-6 0.847, at eps* 0.870, per-instance best eps 0.900
+
+== D. bSB / dSB as algorithms (Goto 2021 normalisation), R = 1000; hyperparameters chosen on training set (700 inst.), evaluated on test (300 inst.)
+   bSB #1: c 0.5   dt 1     steps 10000  A 0.001   train 0.997  test 1.000
+   bSB #2: c 1     dt 1     steps 3000   A 1e-06   train 0.997  test 1.000
+   bSB #3: c 1     dt 1.25  steps 10000  A 0.001   train 0.997  test 1.000
+   bSB #4: c 1     dt 1.25  steps 3000   A 1e-06   train 0.997  test 1.000
+   bSB #5: c 1     dt 1.25  steps 3000   A 0.001   train 0.997  test 1.000
+      best per number of steps (train/test): 100: 0.990/0.997  300: 0.994/1.000  1000: 0.996/1.000  3000: 0.997/1.000  10000: 0.997/1.000  
+      initial amplitude A = 1e-06: best train 0.997, test 1.000
+      initial amplitude A = 0.001: best train 0.997, test 1.000
+      initial amplitude A = 0.1: best train 0.997, test 1.000
+      initial amplitude A = 1: best train 0.997, test 1.000
+   dSB #1: c 0.5   dt 0.5   steps 10000  A 0.001   train 0.991  test 0.991
+   dSB #2: c 0.5   dt 0.5   steps 10000  A 1e-06   train 0.990  test 0.991
+   dSB #3: c 0.5   dt 0.5   steps 10000  A 1       train 0.988  test 0.990
+   dSB #4: c 0.5   dt 1     steps 10000  A 1e-06   train 0.987  test 0.982
+   dSB #5: c 0.5   dt 1     steps 10000  A 0.001   train 0.986  test 0.983
+      best per number of steps (train/test): 100: 0.962/0.963  300: 0.977/0.972  1000: 0.981/0.975  3000: 0.985/0.981  10000: 0.991/0.991  
+      initial amplitude A = 1e-06: best train 0.990, test 0.991
+      initial amplitude A = 0.001: best train 0.991, test 0.991
+      initial amplitude A = 0.1: best train 0.984, test 0.981
+      initial amplitude A = 1: best train 0.988, test 0.990
+
+== E. quantum (weyl family, Wq, h = 1, T = 700) vs classical baselines, 300 test instances
+   baseline                                               mean B  mean(Q-B)  #Q-B>0.1  #Q-B>0.2  #B-Q>0.02
+   L2g eps=1e-6 (Goto 2016 classical)                     0.886   +0.110      90        62         1
+   TWA h*=0.001 (reference, h chosen on test)             0.931   +0.067      11        11         0   (only 100 instances)
+   L2g eps*=0.03                                          0.948   +0.048      31        20         0
+   L3 eps*=0.001                                          0.958   +0.037      17        15         1
+   L4 eps*=1e-06                                          0.964   +0.031      14        14         1
+   L5 eps*=1e-08                                          0.959   +0.037      58        24         1
+   bSB* (c 0.5, dt 1, 10000 steps, A 0.001)               1.000   -0.004       0         0         3
+   dSB* (c 0.5, dt 0.5, 10000 steps, A 0.001)             0.991   +0.005       8         3         3
+   best single fair baseline: bSB* (c 0.5, dt 1, 10000 steps, A 0.001) (mean 1.000)
+   per-instance max over the 6 fair baselines (portfolio, biased towards classical): mean 1.000
+   Q - best single > 0.1: 0 of 300 (0 %, bootstrap 95 % 0-0 %);  > 0.2: 0;  B - Q > 0.02: 3
+   Q - portfolio   > 0.1: 0 of 300 (0 %, bootstrap 95 % 0-0 %);  > 0.2: 0;  B - Q > 0.02: 3
+   instances with Q - portfolio > 0.1:
+     inst     Q    port  best baseline                          trap  Ising gap  lam1  lam2-lam1  Delta_min    p*
+   Spearman(Delta_min, Q - portfolio) =  0.428 over 300 instances
+
+== E. quantum (goto family, G0q, h = 1, T = 700) vs classical baselines, 300 test instances
+   baseline                                               mean B  mean(Q-B)  #Q-B>0.1  #Q-B>0.2  #B-Q>0.02
+   L2g eps=1e-6 (Goto 2016 classical)                     0.886   +0.103      86        61        18
+   TWA h*=0.001 (reference, h chosen on test)             0.931   +0.055      11        10        10   (only 100 instances)
+   L2g eps*=0.03                                          0.948   +0.041      31        18        22
+   L3 eps*=0.001                                          0.958   +0.030      17        14        24
+   L4 eps*=1e-06                                          0.964   +0.025      14        14        24
+   L5 eps*=1e-08                                          0.959   +0.030      51        23        22
+   bSB* (c 0.5, dt 1, 10000 steps, A 0.001)               1.000   -0.011       0         0        30
+   dSB* (c 0.5, dt 0.5, 10000 steps, A 0.001)             0.991   -0.002       8         3        28
+   best single fair baseline: bSB* (c 0.5, dt 1, 10000 steps, A 0.001) (mean 1.000)
+   per-instance max over the 6 fair baselines (portfolio, biased towards classical): mean 1.000
+   Q - best single > 0.1: 0 of 300 (0 %, bootstrap 95 % 0-0 %);  > 0.2: 0;  B - Q > 0.02: 30
+   Q - portfolio   > 0.1: 0 of 300 (0 %, bootstrap 95 % 0-0 %);  > 0.2: 0;  B - Q > 0.02: 30
+   instances with Q - portfolio > 0.1:
+     inst     Q    port  best baseline                          trap  Ising gap  lam1  lam2-lam1  Delta_min    p*
+   Spearman(Delta_min, Q - portfolio) =  0.534 over 300 instances
+
+== F. quantum gap Gg (goto, h = 1, cutoff 22), 300 instances
+   Delta_min: median 3.324e-01, min 1.723e-05 (inst 267); minimum at an end point (no interior minimum): 70
+   p* (interior minima, 230): below lam1 0 %, between lam1 and lam2 17 %, above lam2 83 %;  median p* - lam1 0.635, median p* - lam2 0.436
+   Delta_min: trap mean 1.526e-01 / non-trap 3.622e-01;  Spearman with trap -0.346, lam2 - lam1  0.163, Ising gap  0.059, lam1  0.674
+   vs GqT200 (T = 200, 100 inst.): mean 1 - P_L0 0.0624;  Spearman(1 - P_L0, Delta_min) -0.655, (1 - P_L0, x_LZ T) -0.498
+      P_LZ bin          n   mean P_LZ   mean (1 - P_L0)
+      [0e+00, 1e-06)    31   1.40e-07    4.29e-03
+      [1e-06, 1e-04)    30   2.23e-05    1.23e-02
+      [1e-04, 1e-02)    13   2.30e-03    3.87e-02
+      [1e-02, 1e-01)     8   2.64e-02    5.20e-02
+      [1e-01, 1e+00)    18   2.54e-01    2.68e-01
+   vs G0q (T = 700, 300 inst.): mean 1 - P_L0 0.0111;  Spearman(1 - P_L0, Delta_min) -0.534, (1 - P_L0, x_LZ T) -0.407
+      P_LZ bin          n   mean P_LZ   mean (1 - P_L0)
+      [0e+00, 1e-06)   242   2.00e-08    8.78e-04
+      [1e-06, 1e-04)    11   2.36e-05    5.80e-03
+      [1e-04, 1e-02)    37   1.18e-03    2.39e-02
+      [1e-02, 1e-01)     6   2.58e-02    3.00e-02
+      [1e-01, 1e+00)     4   5.38e-01    5.01e-01
+   vs GqT2000 (T = 2000, 100 inst.): mean 1 - P_L0 0.0044;  Spearman(1 - P_L0, Delta_min) -0.489, (1 - P_L0, x_LZ T) -0.330
+      P_LZ bin          n   mean P_LZ   mean (1 - P_L0)
+      [0e+00, 1e-06)    95   4.46e-09    5.93e-04
+      [1e-06, 1e-04)     2   4.02e-05    6.96e-05
+      [1e-04, 1e-02)     2   3.31e-03    3.42e-03
+      [1e-01, 1e+00)     1   4.02e-01    3.75e-01
+   pooled over T (500 points): Spearman(1 - P_L0, x_LZ T) -0.589, (1 - P_L0, Delta_min^2 T) -0.652, (1 - P_L0, T) -0.488
+
+== F. quantum gap Wg (weyl, h = 1, cutoff 22), 300 instances
+   Delta_min: median 9.784e-01, min 4.600e-04 (inst 267); minimum at an end point (no interior minimum): 0
+   p* (interior minima, 300): below lam1 0 %, between lam1 and lam2 0 %, above lam2 100 %;  median p* - lam1 2.496, median p* - lam2 2.241
+   Delta_min: trap mean 2.575e-01 / non-trap 9.290e-01;  Spearman with trap -0.448, lam2 - lam1  0.865, Ising gap  0.896, lam1 -0.235
+   vs WqT200 (T = 200, 300 inst.): mean 1 - P_L0 0.0093;  Spearman(1 - P_L0, Delta_min) -0.476, (1 - P_L0, x_LZ T) -0.070
+      P_LZ bin          n   mean P_LZ   mean (1 - P_L0)
+      [0e+00, 1e-06)   271   1.72e-08    6.52e-05
+      [1e-06, 1e-04)    14   1.78e-05    1.09e-04
+      [1e-04, 1e-02)     4   2.93e-03    7.73e-03
+      [1e-02, 1e-01)     4   5.77e-02    7.73e-02
+      [1e-01, 1e+00)     7   3.78e-01    3.49e-01
+   vs Wq (T = 700, 300 inst.): mean 1 - P_L0 0.0042;  Spearman(1 - P_L0, Delta_min) -0.428, (1 - P_L0, x_LZ T) -0.008
+      P_LZ bin          n   mean P_LZ   mean (1 - P_L0)
+      [0e+00, 1e-06)   289   1.42e-10    6.00e-05
+      [1e-06, 1e-04)     2   1.65e-05    1.65e-04
+      [1e-04, 1e-02)     5   5.13e-04    2.06e-03
+      [1e-02, 1e-01)     2   1.97e-02    2.14e-02
+      [1e-01, 1e+00)     2   5.89e-01    5.92e-01
+   vs WqT2000 (T = 2000, 300 inst.): mean 1 - P_L0 0.0035;  Spearman(1 - P_L0, Delta_min) -0.405, (1 - P_L0, x_LZ T)  0.022
+      P_LZ bin          n   mean P_LZ   mean (1 - P_L0)
+      [0e+00, 1e-06)   296   1.77e-11    6.62e-05
+      [1e-06, 1e-04)     2   1.41e-05    6.21e-03
+      [1e-04, 1e-02)     1   7.35e-03    1.08e-02
+      [1e-01, 1e+00)     1   9.98e-01    9.98e-01
+   pooled over T (900 points): Spearman(1 - P_L0, x_LZ T) -0.209, (1 - P_L0, Delta_min^2 T) -0.417, (1 - P_L0, T) -0.158
+
+== F. quantum gap Wg07 (weyl, h = 0.7, cutoff 26), 50 instances
+   Delta_min: median 8.046e-01, min 1.394e-02 (inst 29); minimum at an end point (no interior minimum): 0
+   p* (interior minima, 50): below lam1 0 %, between lam1 and lam2 0 %, above lam2 100 %;  median p* - lam1 1.543, median p* - lam2 1.288
+   Delta_min: trap mean 1.911e-01 / non-trap 7.995e-01;  Spearman with trap -0.569, lam2 - lam1  0.842, Ising gap  0.831, lam1 -0.047
+   vs Wq07 (T = 700, 50 inst.): mean 1 - P_L0 0.0172;  Spearman(1 - P_L0, Delta_min) -0.614, (1 - P_L0, x_LZ T) -0.527
+      P_LZ bin          n   mean P_LZ   mean (1 - P_L0)
+      [0e+00, 1e-06)    46   1.21e-10    3.14e-06
+      [1e-06, 1e-04)     1   2.70e-05    3.50e-05
+      [1e-02, 1e-01)     1   2.33e-02    3.15e-02
+      [1e-01, 1e+00)     2   4.96e-01    4.14e-01
+
+== F. quantum gap Wg05 (weyl, h = 0.5, cutoff 32), 50 instances
+   Delta_min: median 6.458e-01, min 3.350e-03 (inst 6); minimum at an end point (no interior minimum): 0
+   p* (interior minima, 50): below lam1 0 %, between lam1 and lam2 0 %, above lam2 100 %;  median p* - lam1 1.049, median p* - lam2 0.791
+   Delta_min: trap mean 1.605e-01 / non-trap 6.479e-01;  Spearman with trap -0.565, lam2 - lam1  0.710, Ising gap  0.700, lam1  0.113
+   vs Wq05 (T = 700, 50 inst.): mean 1 - P_L0 0.0356;  Spearman(1 - P_L0, Delta_min) -0.634, (1 - P_L0, x_LZ T) -0.457
+      P_LZ bin          n   mean P_LZ   mean (1 - P_L0)
+      [0e+00, 1e-06)    44   7.45e-11    6.91e-06
+      [1e-06, 1e-04)     2   1.70e-05    4.49e-05
+      [1e-02, 1e-01)     1   1.07e-02    1.07e-02
+      [1e-01, 1e+00)     3   6.81e-01    5.89e-01
+
+== F'. weyl family, T = 700, pooled over h = [0.5, 0.7, 1.0]: Spearman(1 - P_L0, x_LZ T)  0.274, (1 - P_L0, h)  0.607
+

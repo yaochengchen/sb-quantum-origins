@@ -1,0 +1,29 @@
+MSBQA 1c re-check: configuration branches with per-spin vs uniform detuning, weyl family (1000 instances, n = 4, dp = 0.005, wall 63 s)
+trapK (old trap, per-spin detuning) 91, trapU (top eigenvector of J wrong) 95, both 34
+check: kpo mode vs branches.py on 1000 instances: cross differs on 0 (should be 0), max |p_c diff| 0.00e+00 (should be 0)
+check: trapK equals sign(v1) wrong for the kpo detuning: 0 mismatches (should be 0)
+
+   mode   PSD    gs lowest@pf  first=ground  first=v1   cross: all   trapK   trapU   other   kind1/kind2   median cv_mid (cross / no)
+   kpo    1000        99.9 %        94.7 %     95.4 %       54      53      28       1      54/0       0.223 / 0.106   (63 s)
+          ground configuration never the lowest at pf: 1 instances [602]
+   mean    753        99.8 %        96.0 %     94.2 %       40      14      40       0      39/1       0.269 / 0.188   (63 s)
+          ground configuration never the lowest at pf: 2 instances [50, 648]
+   max    1000        99.7 %        96.0 %     94.2 %       39      13      39       0      39/0       0.266 / 0.188   (61 s)
+          ground configuration never the lowest at pf: 3 instances [50, 640, 648]
+
+   the 54 kpo-crossing instances under the other modes (cross = 1 / 0 / -1):
+     mean : 14 / 40 / 0;   new crossings on instances without a kpo crossing: 26
+     max  : 13 / 40 / 1;   new crossings on instances without a kpo crossing: 26
+   kpo amplitude spread std(x^2)/mean(x^2) at p_c: ground branch median 0.176, replaced branch 0.270;  no-crossing instances (ground branch at birth) 0.419
+
+   ablation success (R = 1000), by crossing status of the matching detuning:
+     kpo   L4      : crossing 0.541 (26)   no crossing 0.993 (474)
+     kpo   bSB* -D : crossing 0.506 (26)   no crossing 0.983 (474)
+     mean  L4 +D   : crossing 0.535 (17)   no crossing 0.989 (482)
+     mean  bSB*    : crossing 0.941 (17)   no crossing 1.000 (482)
+
+   kpo-crossing test instances with quantum data (17): Q_weyl 0.927, Dmin_Wg median 7.888e-02  (prediction for the uniform-detuning quantum run: Dmin rises to ~1)
+     mean : of these, still crossing 2
+     max  : of these, still crossing 2
+
+VERDICT: crossings kpo 54 -> mean 40, max 39.  ~0: amplitude-heterogeneity hypothesis holds -> quantum run with uniform detuning (max).  Still many: hypothesis wrong, stop.

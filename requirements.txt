@@ -1,0 +1,6 @@
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0
+matplotlib>=3.7
+# GPU runs only (code/kpo_gpu.py, code/gap_scan_gpu.py, code/run_quantum_gpu.py):
+# cupy-cuda12x>=13

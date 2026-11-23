@@ -1,0 +1,24 @@
+[PASS] theta diag = 1/2 max dev 4.4e-16
+[PASS] theta parity zeros max 1.8e-16
+[PASS] theta <1|0> = 1/sqrt(2pi) 0.398942280401
+[PASS] theta eigenvalues in [0,1] [-2.42e-16,1.000000]
+[PASS] matvec == dense H (n=2,d=5) max 8.9e-15
+[PASS] H Hermitian (n=3,d=6) 1.1e-13
+[PASS] CSR sector matvec == tensor matvec (goto) max 7.9e-15
+[PASS] CSR sector matvec == tensor matvec (weyl) max 1.4e-14
+[PASS] weyl family == dense H with Delta + K h max 3.7e-15
+[PASS] Lanczos const-p vs expm max 4.2e-15
+[PASS] Lanczos linear-p vs DOP853 (dt_max 0.05) max 5.5e-08 steps 401
+[INFO] Lanczos linear-p vs DOP853 (dt_max 0.25): max 8.7e-04 steps 83
+[INFO] Lanczos linear-p vs DOP853 (dt_max 1.0): max 2.7e-02 steps 25
+[INFO] Goto ramp (T 700, pf 7) vs DOP853 (dt_max 0.05): max 1.4e-08 steps 14001
+[INFO] Goto ramp (T 700, pf 7) vs DOP853 (dt_max 0.1): max 6.9e-06 steps 7002
+[INFO] Goto ramp (T 700, pf 7) vs DOP853 (dt_max 0.25): max 7.1e-04 steps 2803
+[INFO] Goto ramp (T 700, pf 7) vs DOP853 (dt_max 1.0): max 1.3e-02 steps 705
+[PASS] CSR engine propagation == tensor engine (n=4, d=8, fixed dt 0.05) max 2.9e-15 steps 1201/1201 rejects 0/0
+[PASS] parity leak ~ 0 0.0e+00
+[PASS] sum P = |psi|^2 1.000000000000
+[PASS] Weyl(h->0) == Goto classical, per trajectory 0.984
+[PASS] weyl family: L2w == L2g at h = 1 (identical equations) 1.000
+[PASS] two-spin ferromagnet success > 0.95 P_succ=0.99897 steps=4241
+SELFTEST_OK

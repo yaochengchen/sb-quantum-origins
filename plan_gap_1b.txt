@@ -1,0 +1,14 @@
+# MSBQA phase 1b plan, quantum gap (gap_scan.py v3, 2026-10-31). CPU only. Start it only after the probe passes:
+#     python code/gap_scan.py --inst-dir instances --set G4 --inst 0 --family weyl --h 1 --cutoff 22 --pf 7 --probe
+# Run (can run at the same time as run_1b.sh with plan_1b.txt, with fewer workers):
+#     PLAN=plan_gap_1b.txt WORKERS=40 nohup bash run_1b.sh > run_gap_1b.log 2>&1 &
+# Same cutoffs as the quantum runs. Time per task: see the probe (v2 probe with eigsh: ~9 min at h = 1, ~44 min at
+# h = 0.5; v3 uses another eigensolver, so check again).
+# Columns ('-' = not used):
+# tag   kind       family  set  lo   hi   T     pf  h     cutoff  R     dt
+Gg      gap        goto    G4   0    299  -     7   1.0   22      -     -
+Wg      gap        weyl    G4   0    299  -     7   1.0   22      -     -
+Wg07    gap        weyl    G4   0    49   -     7   0.7   26      -     -
+Wg05    gap        weyl    G4   0    49   -     7   0.5   32      -     -
+# h = 0.35 (cutoff 40, sector dim 1.4e6): not now
+# Wg035 gap        weyl    G4   0    49   -     7   0.35  40      -     -

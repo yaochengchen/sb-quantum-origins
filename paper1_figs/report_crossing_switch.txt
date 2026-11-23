@@ -1,0 +1,30 @@
+== classical configuration tracking (Goto App. E flow, T = 700, pf = 7, dt = 0.005, R = 200, noise uniform +-1e-06)
+   instances: crossing 54, trap without crossing 37, neither 30
+   integration 17 s
+
+   group                N inst  departed  P_succ(final)  dep. into ground  dep. into first cfg  trajectories with any switch after departure
+   crossing               54   1.000     0.432          0.380             0.450               0.8363
+   trap, no crossing      37   1.000     0.644          0.465             0.465               0.8289
+   neither                30   1.000     0.951          0.855             0.855               0.5397
+
+-- crossing instances: what happens at p_c
+   trajectories whose configuration changes between p_c - 0.1 and p_c + 0.1: 0.3336  (3603 of 10800)
+   ... of which into the ground configuration: 1327
+   final success = departure into ground: identical for 0.6397 of trajectories
+   mean final success 0.432;  mean share departing into the ground configuration 0.380
+   per instance (first 15): inst  P_final  dep->ground  dep->first_cfg  any-switch  p_dep  p_c
+        1   0.540    0.450       0.375        0.640    0.55  0.48
+        6   0.435    0.000       1.000        1.000    0.65  3.65
+       18   0.490    0.000       0.015        0.995    0.59  0.74
+       29   0.345    0.140       0.370        0.925    0.55  1.62
+       38   0.520    0.990       0.010        0.995    0.61  1.78
+       44   0.415    0.485       0.370        1.000    0.60  1.16
+       49   0.605    0.455       0.540        0.900    0.60  0.80
+       94   0.320    0.125       0.875        1.000    0.62  3.42
+       99   0.205    0.170       0.665        0.505    0.71  0.61
+      133   0.545    0.030       0.970        0.940    0.55  1.22
+      134   0.575    0.495       0.355        0.535    0.55  0.21
+      162   0.475    0.420       0.425        0.265    0.94  0.76
+      190   0.440    0.325       0.600        0.435    0.52  0.64
+      218   0.400    0.185       0.745        1.000    0.53  1.26
+      231   0.300    0.000       0.930        1.000    0.59  1.97

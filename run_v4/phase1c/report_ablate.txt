@@ -1,0 +1,24 @@
+MSBQA phase 1c, step 3: L4 <-> bSB* one-knob ablation, 500 instances (43 trap), R = 1000
+check: config L4 vs phase-1 G0c L4 on 500 instances: max |diff| = 0.00e+00 (should be 0)
+check: config bSB* vs sb_tune bSB* (c 0.5, dt 1, 10000 steps, A 1e-3) on 500 instances: means 0.9980 / 0.9980, max |diff| 0.000 (statistical, R = 1000)
+
+   configuration        all     trap   non-trap  L4<0.9 (23)  #inst<0.9   knobs (bsb = bSB* value)
+   L4                  0.9691  0.7138   0.9931    0.3561          23      (all KPO)
+   L4 +D               0.9722  0.8564   0.9831    0.7048          22      D=bsb
+   L4 +c               0.9340  0.3771   0.9864    0.3303          51      c=bsb
+   L4 +af              0.9822  0.7929   1.0000    0.6125           9      af=bsb
+   L4 +T               0.9809  0.7779   1.0000    0.5847          10      T=bsb
+   L4 +dt              0.9685  0.7059   0.9932    0.3534          25      dt=bsb
+   L4 +init            0.9757  0.7665   0.9953    0.5577          20      init=bsb
+   L4 +af=2D           0.9817  0.7880   0.9999    0.6024          11      af=2D
+   L4 +af=4D           0.9799  0.7814   0.9986    0.5852          15      af=4D
+   bSB*                0.9980  1.0000   0.9978    1.0000           1      D=bsb c=bsb af=bsb T=bsb dt=bsb init=bsb
+   bSB* -D             0.9583  0.6512   0.9872    0.4853          21      c=bsb af=bsb T=bsb dt=bsb init=bsb
+   bSB* -c             0.9980  1.0000   0.9978    1.0000           1      D=bsb af=bsb T=bsb dt=bsb init=bsb
+   bSB* -af            0.9980  0.9999   0.9978    0.9999           1      D=bsb c=bsb T=bsb dt=bsb init=bsb
+   bSB* -T             0.9976  0.9972   0.9976    0.9942           1      D=bsb c=bsb af=bsb dt=bsb init=bsb
+   bSB* -dt            0.9980  1.0000   0.9978    1.0000           1      D=bsb c=bsb af=bsb T=bsb init=bsb
+   bSB* -init          0.9980  1.0000   0.9978    1.0000           1      D=bsb c=bsb af=bsb T=bsb dt=bsb
+
+reading: a knob that alone lifts L4 to ~1 on the trap / L4<0.9 instances (row 'L4 +knob'), and whose removal
+alone drops bSB* back (row 'bSB* -knob'), is the ingredient that makes SB better than its KPO parent model.

@@ -1,0 +1,22 @@
+# MSBQA phase 1b plan, CPU part (v3, 2026-10-31). Runs on the CPUs of the GPU server (pu1), at the same time as
+# the GPU part (plan_gpu_1b.txt, run_gpu_1b.sh). Results go into the same run_v4/ as phase 1.
+# Run:  nohup bash run_1b.sh > run_1b.log 2>&1 &
+# Columns ('-' = not used):
+# tag   kind       family  set  lo   hi   T     pf  h     cutoff  R     dt
+#
+# Test set = instances 0-299 (quantum results: 0-99 from phase 1, 100-299 from the GPU part of 1b).
+# Training set = 300-499 (noise scan) / 300-999 (sb_tune), used only to choose the noise amplitude and the SB
+# hyperparameters (phase1b_report.py --test-hi 299).
+#
+# Step 1a: initial-noise scan of L2g, L3, L4, L5 (9 amplitudes 1e-8 .. 1), with departure times (~25 min/instance)
+NS      noise      -       G4   0    499  700   7   -     -       1000  0.0025
+# Step 1b: bSB / dSB as algorithms (Goto 2021 normalisation), 1000 hyperparameter combinations (~1.5 min/instance)
+SBT     sbtune     -       G4   0    999  -     -   -     -       1000  -
+# Step 2 (quantum gap) is in plan_gap_1b.txt (run separately once the gap_scan.py probe passes).
+#
+# Classical partners of the new quantum instances 100-299 (same settings as the Wc lines of plan.txt; the
+# instances 0-99 already exist and are skipped). G0c already covers 0-999.
+Wc      classical  weyl    G4   0    299  700   7   1.0   -       1000  0.0025
+Wc07    classical  weyl    G4   0    299  700   7   0.7   -       1000  0.0025
+WcT200  classical  weyl    G4   0    299  200   7   1.0   -       1000  0.0025
+WcT2000 classical  weyl    G4   0    299  2000  7   1.0   -       1000  0.0025

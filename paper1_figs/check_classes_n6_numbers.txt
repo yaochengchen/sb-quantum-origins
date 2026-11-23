@@ -1,0 +1,6 @@
+(1) G4 test set: trap without crossing N 10; first-born branch = ground configuration in 10 of 10
+    L2 eps=1e-6 0.613 -> L2 eps* 0.894;  L3 eps* 0.923;  L4 eps* 0.876;  quantum 1.000
+    for comparison, crossing instances (N 17): first-born = ground in 0; L2 eps* 0.337
+(2) n = 4: instances 300, mean detuning 0.744, crossing 17, median p_c - Dbar on crossing 0.421, median Ising gap all 0.724 / crossing 0.052, ground not the lowest branch at pf 0.000
+(2) n = 6: instances 300, mean detuning 1.254, crossing 36, median p_c - Dbar on crossing 0.121, median Ising gap all 0.652 / crossing 0.231, ground not the lowest branch at pf 0.020
+    Ising gap ratio n=6/n=4: all 0.90, crossing 4.40

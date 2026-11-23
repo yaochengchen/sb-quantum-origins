@@ -1,0 +1,52 @@
+== 1. hbar scan, T = 700 (weyl family; each row: instances with both L0 and the classical layers)
+      h      T    n    P_L0   P_L1   P_L2w  P_L4   rQ>0.2%  med f  f<0.5%  mean(L0-L1)  Sp(L1,L0)  top2max
+      1    700  100  0.9979 0.5415 0.8683 0.9531   24.0   -0.35    100  +0.4564  +0.734  2.3e-06
+    0.7    700  100  0.9892 0.6302 0.8682 0.9531   23.0   -0.33     96  +0.3590  +0.448  8.5e-06
+    0.5    700  100  0.9722 0.6996 0.8683 0.9531   21.0   -0.24     95  +0.2727  +0.632  1.2e-05
+   0.35    700   50  0.9506 0.7745 0.8549 0.9419   20.0   -0.16     90  +0.1762  +0.848  2.0e-05
+
+== 2. the same 50 instances at every finished h (T = 700)
+      h      T    n    P_L0   P_L1   P_L2w  P_L4   rQ>0.2%  med f  f<0.5%  mean(L0-L1)  Sp(L1,L0)  top2max
+      1    700   50  0.9959 0.5532 0.8549 0.9419   26.0   -0.29    100  +0.4427  +0.653  2.2e-06
+    0.7    700   50  0.9828 0.6449 0.8549 0.9419   24.0   -0.21     92  +0.3379  +0.545  8.5e-06
+    0.5    700   50  0.9644 0.7142 0.8548 0.9419   22.0   -0.19     91  +0.2502  +0.744  1.1e-05
+   0.35    700   50  0.9506 0.7745 0.8549 0.9419   20.0   -0.16     90  +0.1762  +0.848  2.0e-05
+
+== 3. R1 = the 24 instances with r_Q > 0.2 at h = 1, T = 700, followed across h
+      h    n(R1)  P_L0   P_L1   P_L2w  mean(L0-L1)  mean(L1-L2w)  share of R1 with f<0.5 (where r_Q>0.2)
+      1     24  0.9913 0.3607 0.5230  +0.6306      -0.1623       100 % of 24
+    0.7     24  0.9550 0.4114 0.5228  +0.5437      -0.1114       96 % of 23
+    0.5     24  0.8844 0.4508 0.5230  +0.4335      -0.0721       95 % of 21
+   0.35     13  0.8101 0.4865 0.4929  +0.3236      -0.0065       90 % of 10
+  reading: if mean(L0-L1) on R1 shrinks towards 0 as h decreases while mean(L0-L2w) stays, TWA catches up
+  (rescue = vacuum fluctuations, outcome A at small h); if L0-L1 stays large, the rescue is beyond TWA (B).
+
+== 4. TWA (L1) towards the classical limit, T = 700 (all classical weyl lines; L2w is h independent)
+      h      n   P_L1   P_L2w  mean|L1-L2w|  Sp(L1,L2w)  Sp(L1, L0 at h=1)  max|L2w(h)-L2w(1)|
+       1  100  0.5415 0.8683   0.3343       +0.775        +0.734            0.0e+00
+     0.7  100  0.6302 0.8682   0.2496       +0.805        +0.727            4.0e-03
+     0.5  100  0.6996 0.8683   0.1824       +0.812        +0.731            4.0e-03
+    0.35  100  0.7615 0.8683   0.1254       +0.813        +0.735            7.0e-03
+    0.25  100  0.8093 0.8681   0.0875       +0.820        +0.737            6.0e-03
+     0.1  100  0.8921 0.8682   0.0558       +0.802        +0.732            6.0e-03
+    0.05  100  0.9188 0.8682   0.0683       +0.802        +0.677            5.0e-03
+    0.02  100  0.9266 0.8682   0.0817       +0.761        +0.547            6.0e-03
+   0.005  100  0.9286 0.8682   0.0834       +0.764        +0.473            6.0e-03
+   0.001  100  0.9311 0.8682   0.0812       +0.778        +0.441            6.0e-03
+
+== 5. annealing-time scan, h = 1
+      h      T    n    P_L0   P_L1   P_L2w  P_L4   rQ>0.2%  med f  f<0.5%  mean(L0-L1)  Sp(L1,L0)  top2max
+      1    200  100  0.9885 0.5286 0.6890 0.9182   60.0   -0.22    100  +0.4600  +0.746  2.3e-06
+      1    700  100  0.9979 0.5415 0.8683 0.9531   24.0   -0.35    100  +0.4564  +0.734  2.3e-06
+      1   2000  100  0.9997 0.5549 0.9366 0.9741   12.0   -0.33    100  +0.4448  +0.693  2.3e-06
+  R1 (rescued at T = 700) at other T: mean P_L0 / P_L2w
+    T    200: 0.9524 / 0.4138  (24 instances)
+    T    700: 0.9913 / 0.5230  (24 instances)
+    T   2000: 0.9989 / 0.7370  (24 instances)
+
+== 6. plan 3.4, B criterion (>= 25 % of r_Q > 0.2 instances with f < 0.5) at each finished h, T = 700
+  h     1: 100.0 % of 24 -> met
+  h   0.7:  95.7 % of 23 -> met
+  h   0.5:  95.2 % of 21 -> met
+  h  0.35:  90.0 % of 10 -> met
+  (top2max column: population of the two highest Fock levels, should stay below ~1e-4)

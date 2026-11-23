@@ -1,0 +1,10 @@
+KO    N  40  median Dmin_K 1.310e-01  Dmin_U 2.672e-01  geo-median ratio 1.733  frac U>K 1.00
+MO    N  26  median Dmin_K 4.158e-01  Dmin_U 2.539e-01  geo-median ratio 0.632  frac U>K 0.00
+BOTH  N  13  median Dmin_K 1.280e-01  Dmin_U 1.386e-01  geo-median ratio 0.991  frac U>K 0.46
+CTRL  N  40  median Dmin_K 1.018e+00  Dmin_U 1.171e+00  geo-median ratio 1.158  frac U>K 0.95
+NEG   N   4  median Dmin_K 4.533e-02  Dmin_U 3.378e-02  geo-median ratio 0.697  frac U>K 0.25
+direction as predicted: 66 of 66
+paired regression over 123 selected instances: ln(U/K) = +0.17 -0.88 * delta_cross -> factor 2.42 per crossing
+classical KO: L2 0.438 -> 0.673, L3 0.366 -> 0.720, L4 0.642 -> 0.889
+classical MO: L2 0.696 -> 0.381, L3 0.842 -> 0.330, L4 0.852 -> 0.658
+classical BOTH: L2 0.401 -> 0.388, L3 0.297 -> 0.402, L4 0.386 -> 0.720

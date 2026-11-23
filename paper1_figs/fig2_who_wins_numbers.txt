@@ -1,0 +1,10 @@
+test instances: 300;  classes: other 273, crossing 17, trap, no crossing 10
+quantum (weyl, h = 1, T = 700) mean: all 0.9958, crossing 0.9272, other 0.9999;  goto family mean 0.9889
+L2g eps=1e-6 (Goto 2016 classical)            mean B 0.886 (crossing 0.400, no crossing 0.915) | Q-B>0.1:  90 [crossing 16, trap-no-cross 10, other 64] | Q-B>0.2:  62 | B-Q>0.02:   1
+L2g eps*=0.03                                 mean B 0.948 (crossing 0.337, no crossing 0.985) | Q-B>0.1:  31 [crossing 16, trap-no-cross 3, other 12] | Q-B>0.2:  20 | B-Q>0.02:   0
+L3 eps*=0.001                                 mean B 0.958 (crossing 0.351, no crossing 0.995) | Q-B>0.1:  17 [crossing 15, trap-no-cross 2, other 0] | Q-B>0.2:  15 | B-Q>0.02:   1
+L4 eps*=1e-06                                 mean B 0.964 (crossing 0.544, no crossing 0.990) | Q-B>0.1:  14 [crossing 10, trap-no-cross 2, other 2] | Q-B>0.2:  14 | B-Q>0.02:   1
+bSB* (c 0.5; dt 1; 10000 steps; A 0.001)      mean B 1.000 (crossing 1.000, no crossing 1.000) | Q-B>0.1:   0 [crossing 0, trap-no-cross 0, other 0] | Q-B>0.2:   0 | B-Q>0.02:   3
+dSB* (c 0.5; dt 0.5; 10000 steps; A 0.001)    mean B 0.991 (crossing 0.955, no crossing 0.993) | Q-B>0.1:   8 [crossing 2, trap-no-cross 0, other 6] | Q-B>0.2:   3 | B-Q>0.02:   3
+crossing instances: best KPO-type (max L2g/L3/L4 at eps*) mean 0.571, quantum 0.927, Q - best KPO > 0.1 on 10 of 17
+goto family: bSB* - Q_goto > 0.02 on 30

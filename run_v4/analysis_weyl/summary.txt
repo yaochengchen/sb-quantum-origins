@@ -1,0 +1,79 @@
+== completeness
+  G0q        quantum   goto  100/100
+  G0c        classical goto  1000/1000
+  Wq         quantum   weyl  100/100
+  Wc         classical weyl  100/100
+  cvq_cut    quantum   goto  10/10
+  cvqw_cut   quantum   weyl  10/10
+  cvc_dt1    classical goto  10/10
+  cvc_dt2    classical goto  10/10
+  cvcw_dt1   classical weyl  10/10
+  cvcw_dt2   classical weyl  10/10
+  cvc_R      classical goto  10/10
+  Wq07       quantum   weyl  100/100
+  Wq05       quantum   weyl  100/100
+  cvqw05_cut quantum   weyl  10/10
+  WqT200     quantum   weyl  100/100
+  WqT2000    quantum   weyl  100/100
+  Wq035      quantum   weyl  50/50
+  Wc07       classical weyl  100/100
+  Wc05       classical weyl  100/100
+  Wc035      classical weyl  100/100
+  WcT200     classical weyl  100/100
+  WcT2000    classical weyl  100/100
+  Wc025      classical weyl  100/100
+  Wc010      classical weyl  100/100
+  Wc005      classical weyl  100/100
+  Wc002      classical weyl  100/100
+  Wc0005     classical weyl  100/100
+  Wc0001     classical weyl  100/100
+
+== analysing Wq + Wc: family weyl, classical reference layer L2w
+
+== L0 numerical health
+  max population in the top two Fock levels: 2.25e-06 (median 2.2e-06)
+  max parity leak 0.0e+00;  max |sum P - 1| 1.7e-12
+  steps median 15063, matvecs median 723024, wall median 2287 s
+
+== G0 calibration against Goto 2016 Fig. 2 (300 instances, Wq vs Wc:L2g)
+   Goto 2016 gives Fig. 2 only as histograms: compare fig_goto2016_hist.png with his Fig. 2(a)-(d).
+  L0 quantum     P_succ mean 0.9958 median 1.0000 | E_res mean 0.0002
+  L2g classical  P_succ mean 0.8857 median 0.9950 | E_res mean 0.0305
+  instances where L2g 'almost always fails' (P < 0.1): 1 (0.3 %); their L0 P_succ median 0.001
+  eigenvector-trap fraction: all 0.087; among L2g failures 1.000
+  Spearman(P_L0, P_L2g) = 0.336; mean(P_L0 - P_L2g) = +0.1101
+
+== ablation chain (mean P_succ, mean E_res)
+  L0   0.9958  0.0002
+  L1   0.5425  0.5064   Spearman with L0 +0.656
+  L2w  0.8871  0.0301   Spearman with L0 +0.348
+  L2g  0.8857  0.0305   Spearman with L0 +0.336
+  L3   0.9429  0.0093   Spearman with L0 +0.478
+  L4   0.9643  0.0031   Spearman with L0 +0.312
+  L5   0.9566  0.0216   Spearman with L0 +0.335
+
+  r_Q = P_L0 - P_L2w > 0.2 in 63 instances (21.0 %)
+  f = TWA share of the rescue: median -0.458; f < 0.5 in 100.0 %
+  provisional verdict (h = 1 only, one instance cell): B candidate (needs the hbar scan)
+  rescue vs instance features (Spearman with r_Q):
+    trap           +0.417
+    trap_excess    +0.418
+    gap            -0.687
+    lam1           -0.066
+    n_locmin       -0.032
+    v1_gs_overlap  -0.455
+
+== convergence (G1): max |dP_succ| and max total-variation distance of the pattern distribution
+  cvqw_cut   vs Wq: 10 inst  max|dP| 4.00e-05  max TV 4.00e-05
+  cvcw_dt1   vs Wc L1  : 10 inst  max|dP| 0.038
+  cvcw_dt1   vs Wc L2w : 10 inst  max|dP| 0.006
+  cvcw_dt1   vs Wc L2g : 10 inst  max|dP| 0.004
+  cvcw_dt1   vs Wc L3  : 10 inst  max|dP| 0.005
+  cvcw_dt1   vs Wc L4  : 10 inst  max|dP| 0.001
+  cvcw_dt1   vs Wc L5  : 10 inst  max|dP| 0.473
+  cvcw_dt2   vs Wc L1  : 10 inst  max|dP| 0.025
+  cvcw_dt2   vs Wc L2w : 10 inst  max|dP| 0.005
+  cvcw_dt2   vs Wc L2g : 10 inst  max|dP| 0.001
+  cvcw_dt2   vs Wc L3  : 10 inst  max|dP| 0.006
+  cvcw_dt2   vs Wc L4  : 10 inst  max|dP| 0.001
+  cvcw_dt2   vs Wc L5  : 10 inst  max|dP| 0.257
