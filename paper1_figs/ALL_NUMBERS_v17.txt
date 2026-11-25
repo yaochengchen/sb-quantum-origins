@@ -1,0 +1,133 @@
+== fig1_schematic_v17
+written: paper1_figs/fig1_schematic_v17.pdf
+
+== fig2_who_wins_v16
+test instances: 300;  classes: other 273, crossing 17, trap, no crossing 10
+L2g eps=1e-6 (Goto 2016 classical)            Q-B>0.1:  90 [crossing 16, trap-no-cross 10, other 64] | B-Q>0.02:   1 | min(Q-B) -0.041
+L2g eps*=0.03                                 Q-B>0.1:  31 [crossing 16, trap-no-cross 3, other 12] | B-Q>0.02:   0 | min(Q-B) -0.019
+L3 eps*=0.001                                 Q-B>0.1:  17 [crossing 15, trap-no-cross 2, other 0] | B-Q>0.02:   1 | min(Q-B) -0.023
+L4 eps*=1e-06                                 Q-B>0.1:  14 [crossing 10, trap-no-cross 2, other 2] | B-Q>0.02:   1 | min(Q-B) -0.023
+bSB* (c 0.5; dt 1; 10000 steps; A 0.001)      Q-B>0.1:   0 [crossing 0, trap-no-cross 0, other 0] | B-Q>0.02:   3 | min(Q-B) -0.999
+dSB* (c 0.5; dt 0.5; 10000 steps; A 0.001)    Q-B>0.1:   8 [crossing 2, trap-no-cross 0, other 6] | B-Q>0.02:   3 | min(Q-B) -0.999
+written: paper1_figs/fig2_who_wins_v16.pdf
+
+== fig_classical_failure_v16
+instances in the noise scan: 500  (crossing: 26)
+(a) p_dep - mu_dec: median +0.008, 90% |.| 0.022, Spearman +0.997, n = 2000
+(b) no crossing : P mean at x > 0 0.989 (n 978), at x < 0 0.884 (n 1392)
+(b) crossing    : P mean at x > 0 0.384 (n 16), at x < 0 0.395 (n 114)
+(c) instances with NS and all available TWA tags: 100; TWA tags found: h=1:300, h=0.7:300, h=0.5:100, h=0.35:100, h=0.25:100, h=0.1:100, h=0.05:100, h=0.02:100, h=0.005:100, h=0.001:100
+    sigma      classical L2g          TWA
+     5.77e-09   0.843 +- 0.021
+     5.77e-07   0.867 +- 0.022
+     5.77e-05   0.903 +- 0.020
+     5.77e-04   0.923 +- 0.018
+     5.77e-03   0.933 +- 0.018
+     1.58e-02                         0.931 +- 0.020
+     1.73e-02   0.931 +- 0.020
+     3.54e-02                         0.929 +- 0.020
+     5.77e-02   0.928 +- 0.020
+     7.07e-02                         0.927 +- 0.020
+     1.12e-01                         0.919 +- 0.019
+     1.58e-01                         0.892 +- 0.018
+     1.73e-01   0.883 +- 0.018
+     2.50e-01                         0.809 +- 0.019
+     2.96e-01                         0.762 +- 0.019
+     3.54e-01                         0.700 +- 0.018
+     4.18e-01                         0.630 +- 0.017
+     5.00e-01                         0.541 +- 0.015
+     5.77e-01   0.467 +- 0.013
+    quantum L0 (h = 1) on the same instances: 0.9979
+(b) binned no crossing: [-inf,-10) 0.78 (n 323), [-10,-8) 0.88 (n 145), [-8,-6) 0.88 (n 174), [-6,-4) 0.92 (n 199), [-4,-2) 0.92 (n 264), [-2,0) 0.95 (n 287), [0,2) 0.97 (n 235), [2,4) 0.98 (n 187), [4,6) 0.99 (n 133), [6,8) 1.00 (n 102), [8,10) 1.00 (n 79), [10,inf) 1.00 (n 242)
+(b) binned crossing: [-inf,-10) 0.40 (n 36), [-10,-8) 0.40 (n 10), [-8,-6) 0.43 (n 13), [-6,-4) 0.37 (n 19), [-4,-2) 0.41 (n 20), [-2,0) 0.37 (n 16), [0,2) 0.39 (n 11), [2,4) 0.39 (n 4), [4,6) 0.30 (n 1)
+written: paper1_figs
+
+== fig4_crossing_anatomy_v16
+#29: p_c 1.625; competing [ 1 -1 -1  1], ground [ 1  1 -1 -1]; min E_A - E_B -0.0126 at p 0.615
+h = 1   : p* 4.273, Delta_min 2.692e-02, curve points 157
+h = 0.7 : p* 3.090, Delta_min 1.394e-02, curve points 157
+h = 0.5 : p* 2.432, Delta_min 3.406e-03, curve points 157
+h = 0.35: p* 2.133, Delta_min 1.339e-04, curve points 161
+h = 0.25: p* 1.974, Delta_min 1.265e-06, curve points 123
+written: paper1_figs/fig4_crossing_anatomy_v16.pdf
+
+== fig5_gap_law_v17
+(a) crossing (vs p_c)         : p*(h->0) - ref median -0.038, |.|<0.2 in 71%, Spearman +0.975;  p*(h=1) - ref median +3.29
+(a) no crossing (vs p_first)  : p*(h->0) - ref median -0.002, |.|<0.2 in 100%, Spearman +0.928;  p*(h=1) - ref median +2.28
+(b) crossing    : fitted 16; exp(-S/h) better on 12 of 16
+(b) no crossing : fitted 43; exp(-S/h) better on 3 of 43
+(c) Spearman(S, d_H x_c^2) +0.944 (N 16); S/(d_H x_c^2) median 0.55, range 0.17-1.40
+(d) weyl: minimum gap at p = 0 on 0 of 300; shown (P_LZ >= 1e-5) 10, of which interior minimum 10, at p = 0 0
+    mean failure where P_LZ < 1e-6: all 6.0e-05 (N 289), interior minimum 6.0e-05 (N 289)
+    interior minimum, P_LZ > 0.01 (P_LZ / measured): #6 0.017/0.016, #29 0.179/0.184, #231 0.022/0.027, #267 0.999/0.999
+(d) goto: minimum gap at p = 0 on 70 of 300; shown (P_LZ >= 1e-5) 53, of which interior minimum 13, at p = 0 40
+    mean failure where P_LZ < 1e-6: all 8.8e-04 (N 242), interior minimum 3.4e-04 (N 214)
+    interior minimum, P_LZ > 0.01 (P_LZ / measured): #1 0.069/0.072, #6 0.168/0.155, #29 0.727/0.614, #94 0.037/0.035, #99 0.010/0.017, #134 0.014/0.017, #162 0.012/0.021, #190 0.012/0.018, #231 0.257/0.237, #267 1.000/1.000
+    minimum at p = 0: failure > 1e-3 on 52 (0.002-0.057), <= 1e-3 on 18 (max 1.0e-05)
+written: paper1_figs/fig5_gap_law_v17.pdf
+
+== fig6_intervention_v17
+KO    N  40  median Dmin_P 1.310e-01  Dmin_U 2.672e-01  geo-median ratio 1.733  frac U>P 1.00
+MO    N  26  median Dmin_P 4.158e-01  Dmin_U 2.539e-01  geo-median ratio 0.632  frac U>P 0.00
+BOTH  N  13  median Dmin_P 1.280e-01  Dmin_U 1.386e-01  geo-median ratio 0.991  frac U>P 0.46
+CTRL  N  40  median Dmin_P 1.018e+00  Dmin_U 1.171e+00  geo-median ratio 1.158  frac U>P 0.95
+NEG   N   4  median Dmin_P 4.533e-02  Dmin_U 3.378e-02  geo-median ratio 0.697  frac U>P 0.25
+direction as expected from the branches: 66 of 66
+classical KO: L2 0.438 -> 0.673, L3 0.366 -> 0.720, L4 0.642 -> 0.889
+classical MO: L2 0.696 -> 0.381, L3 0.842 -> 0.330, L4 0.852 -> 0.658
+#514 (MO): Dmin_P 3.758e-02, Dmin_U 1.045e-02 at p*_U 7.00 (end of the scan)
+written: paper1_figs/fig6_intervention_v17.pdf
+
+== fig7_sb_n6_v17
+(a) 500 instances, trap 43
+    L4         trap 0.714  non-trap 0.993  all 0.969
+    L4 +D      trap 0.856  non-trap 0.983  all 0.972
+    L4 +af     trap 0.793  non-trap 1.000  all 0.982
+    L4 +T      trap 0.778  non-trap 1.000  all 0.981
+    L4 +init   trap 0.767  non-trap 0.995  all 0.976
+    L4 +c      trap 0.377  non-trap 0.986  all 0.934
+    bSB* -D    trap 0.651  non-trap 0.987  all 0.958
+    bSB* -T    trap 0.997  non-trap 0.998  all 0.998
+    bSB*       trap 1.000  non-trap 0.998  all 0.998
+(b) Ising window: 500 instances
+    mean detuning, crossing instances N  17: base 0.535, hold@Dbar 1000 0.806, hold@pf 1000 0.535
+    kpo  detuning, crossing instances N  26: base 0.541, hold@Dbar 1000 0.641, hold@pf 1000 0.541
+    bSB* on the uniform-mean crossing instances: 0.941
+(c) n=4: crossing 17/300 (0.057);  n=6: crossing 36/300 (0.120), with gap 36
+    L2 $\varepsilon^*$     n=4 0.337   n=6 0.239
+    L4 $\varepsilon^*$     n=4 0.544   n=6 0.432
+    bSB$^*$                n=4 1.000   n=6 0.972
+    quantum                n=4 0.927   n=6 0.927
+written: paper1_figs/fig7_sb_n6_v17.pdf
+
+== check_residuals
+A. weyl, h = 1: 289 instances with P_LZ(T=700) < 1e-6
+   mean failure  T=200 1.73e-04   T=700 6.00e-05   T=2000 5.93e-05
+   T=700 against T=2000, per instance: |difference| / failure median 0.020, max 0.100; within 20 % on 289 of 289
+   truncation 22 -> 26 on instances [0, 2, 3, 4, 5, 7, 8, 9]: relative change of the failure max 0.012
+   ground state of H(p_f) read out directly (failure): instance, ground state, propagation T=700, T=2000
+      #0    4.173e-05   4.279e-05   4.186e-05
+      #2    4.131e-05   4.207e-05   4.145e-05
+      #3    8.312e-05   8.379e-05   8.306e-05
+      #4    2.259e-05   2.279e-05   2.272e-05
+      #5    1.690e-05   1.810e-05   1.707e-05
+      #7    4.024e-05   4.108e-05   4.052e-05
+      #8    3.054e-05   3.119e-05   3.041e-05
+      #9    1.032e-04   1.039e-04   1.029e-04
+      #18   1.217e-04   1.246e-04   1.214e-04
+      #164  2.980e-04   3.033e-04   2.969e-04
+   ground state against T=2000: relative difference max 0.010
+
+B. weyl, instances with P_LZ(T=700) > 0.01: failure measured / P_LZ at T = 200, 700, 2000; ground state at p_f
+   #6    p* 6.46  Delta_min 0.0328   T=200: 3.14e-01 / 3.13e-01   T=700: 1.62e-02 / 1.71e-02   T=2000: 1.23e-02 / 8.94e-06   ground state 1.20e-02
+   #29   p* 4.27  Delta_min 0.0269   T=200: 4.71e-01 / 6.12e-01   T=700: 1.84e-01 / 1.79e-01   T=2000: 1.08e-02 / 7.35e-03   ground state 4.66e-05
+   #231  p* 4.53  Delta_min 0.0580   T=200: 3.00e-01 / 3.38e-01   T=700: 2.65e-02 / 2.24e-02   T=2000: 1.52e-04 / 1.93e-05   ground state 1.16e-04
+   #267  p* 5.65  Delta_min 0.0005   T=200: 9.62e-01 / 1.00e+00   T=700: 9.99e-01 / 9.99e-01   T=2000: 9.98e-01 / 9.98e-01   ground state 6.88e-05
+
+C. goto, h = 1: minimum gap at p = 0 on 70 of 300 instances (Delta_min 0.117-0.334)
+   failure at T=700 above 1e-3 on 52: 0.002-0.057, Ising gap 0.45-1.95;  below on 18: max 1.0e-05, Ising gap 2.02-3.59
+   ramp-time scan on 21 of them: failure(700)/failure(2000) median 8.11 [(2000/700)^2 = 8.16], failure(200)/failure(700) median 10.53 [(700/200)^2 = 12.25]
+   example #4: T=200 0.0230, T=700 0.0022, T=2000 0.0003
+   interior minimum (230): P_LZ >= 1e-5 on 13; with P_LZ > 0.01, measured / P_LZ: #1 0.072/0.069, #6 0.155/0.168, #29 0.614/0.727, #94 0.035/0.037, #99 0.017/0.010, #134 0.017/0.014, #162 0.021/0.012, #190 0.018/0.012, #231 0.237/0.257, #267 1.000/1.000
+   P_LZ < 1e-6: 242 instances, mean failure 8.8e-04; interior minimum only (214): 3.4e-04
+   those with a ramp-time scan (65): mean failure T=200 4.5e-03, T=700 4.0e-04, T=2000 5.0e-05; failure(700)/failure(2000) median 7.68

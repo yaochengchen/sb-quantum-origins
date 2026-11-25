@@ -51,7 +51,9 @@ def setup_mpl():
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
-    plt.rcParams.update({"font.size": 9, "axes.labelsize": 9, "legend.fontsize": 7, "xtick.labelsize": 8,
+    # the font is fixed (DejaVu Sans ships with matplotlib), so every figure looks the same on every machine
+    plt.rcParams.update({"font.family": "DejaVu Sans", "mathtext.fontset": "dejavusans",
+                         "font.size": 9, "axes.labelsize": 9, "legend.fontsize": 7, "xtick.labelsize": 8,
                          "ytick.labelsize": 8, "pdf.fonttype": 42, "ps.fonttype": 42,
                          "axes.spines.top": False, "axes.spines.right": False})
     return plt

@@ -6,24 +6,28 @@ Code, instances, results, and figure scripts for
 
 The paper compares closed Kerr-parametric-oscillator (KPO) networks with their classical counterparts and with tuned simulated-bifurcation (SB) algorithms on the same Ising instances: classical configuration branches, quantum spectra in the even-parity sector, direct Schrödinger propagation, truncated Wigner dynamics, and SB ablations.
 
-## Reproduce the figures (about one minute, no simulation)
+## Reproduce the figures (about two minutes, no simulation)
 
 ```bash
 pip install -r requirements.txt
-python paper1_figs/make_paper1_v16_figs.py
+python paper1_figs/make_paper1_v17_figs.py
 ```
 
-Run from this folder. The script unpacks `paper1_figdata.tgz` into `run_v4/parts/` if needed, writes the seven figures to `paper1_figs/` (`.pdf`, `.png`), and collects every printed number in `paper1_figs/ALL_NUMBERS_v16.txt`.
+Run from this folder. The script unpacks `paper1_figdata.tgz` into `run_v4/parts/` if needed, writes the seven figures to `paper1_figs/` (`.pdf`, `.png`), and collects every printed number in `paper1_figs/ALL_NUMBERS_v17.txt`. All figures use the font fixed in `paper1_figs/p1common.py` (DejaVu Sans, shipped with Matplotlib).
 
 | Figure | Script | Inputs |
 |---|---|---|
-| 1 | `paper1_figs/fig1_B1.py` | schematic, no data |
+| 1 | `paper1_figs/fig1_schematic_v17.py` | schematic, no data |
 | 2 | `paper1_figs/fig2_who_wins_v16.py` | `run_v4/phase1b/per_instance_1b.csv`, `run_v4/branches/branches_weyl.csv` |
 | 3 | `paper1_figs/fig_classical_failure_v16.py` | `run_v4/parts/{NS,Wc*,Wq}_*.json`, `run_v4/branches/branches_weyl.csv` |
 | 4 | `paper1_figs/fig4_crossing_anatomy_v16.py` | `instances/G4.npz`, `run_v4/parts/Wg*_29.json` |
-| 5 | `paper1_figs/fig5_gap_law_v16.py` | `run_v4/phase1c/gap_vs_h.csv`, `run_v4/phase1b/per_instance_1b.csv` |
-| 6 | `paper1_figs/fig6_intervention_v14.py` | `run_v4/phase1d/per_instance_1d.csv` |
-| 7 | `paper1_figs/fig7_sb_n6_v15.py` | `run_v4/phase1c/ablate_per_instance.csv`, `run_v4/phase1d/`, `run_v4/phase1e/` |
+| 5 | `paper1_figs/fig5_gap_law_v17.py` | `run_v4/phase1c/gap_vs_h.csv`, `run_v4/phase1b/per_instance_1b.csv` |
+| 6 | `paper1_figs/fig6_intervention_v17.py` | `run_v4/phase1d/per_instance_1d.csv` |
+| 7 | `paper1_figs/fig7_sb_n6_v17.py` | `run_v4/phase1c/ablate_per_instance.csv`, `run_v4/phase1d/`, `run_v4/phase1e/` |
+
+The same command runs `paper1_figs/check_residuals.py`, which gives the numbers of Sec. IV C on the failures outside the Landau–Zener estimate (`paper1_figs/report_residuals.txt`): their dependence on the ramp time (`run_v4/parts/{Wq,WqT200,WqT2000,G0q,GqT200,GqT2000}_*.json`) and on the truncation (`cvqw_cut`), the read-out of the ground state of H(p_f) for 14 instances (sparse diagonalization, about one minute), and the goto instances whose minimum gap is at p = 0 (`Gg_*.json`).
+
+Scripts with other suffixes in `paper1_figs/` (`fig*_B1`, `fig*_v14`, `fig*_v15`, unsuffixed) drew earlier versions of the figures and are kept for the record.
 
 ## Layout
 

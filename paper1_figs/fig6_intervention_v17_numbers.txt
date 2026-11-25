@@ -1,0 +1,9 @@
+KO    N  40  median Dmin_P 1.310e-01  Dmin_U 2.672e-01  geo-median ratio 1.733  frac U>P 1.00
+MO    N  26  median Dmin_P 4.158e-01  Dmin_U 2.539e-01  geo-median ratio 0.632  frac U>P 0.00
+BOTH  N  13  median Dmin_P 1.280e-01  Dmin_U 1.386e-01  geo-median ratio 0.991  frac U>P 0.46
+CTRL  N  40  median Dmin_P 1.018e+00  Dmin_U 1.171e+00  geo-median ratio 1.158  frac U>P 0.95
+NEG   N   4  median Dmin_P 4.533e-02  Dmin_U 3.378e-02  geo-median ratio 0.697  frac U>P 0.25
+direction as expected from the branches: 66 of 66
+classical KO: L2 0.438 -> 0.673, L3 0.366 -> 0.720, L4 0.642 -> 0.889
+classical MO: L2 0.696 -> 0.381, L3 0.842 -> 0.330, L4 0.852 -> 0.658
+#514 (MO): Dmin_P 3.758e-02, Dmin_U 1.045e-02 at p*_U 7.00 (end of the scan)
